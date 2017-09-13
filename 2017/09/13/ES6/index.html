@@ -102,7 +102,7 @@
 <meta property="og:url" content="https://github.com/centmaster/hexo-centmaster/2017/09/13/ES6/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="ES6入门  个人总结ES6生命变量的六种方式let const promise reflect proxy generator decorator Symbol Iterator 结构赋值 Array: .from .of …(扩展运算符) .copyWithin .find .findindex .includes .fill .entires .keys .values Object: 属性">
-<meta property="og:updated_time" content="2017-09-13T13:39:58.000Z">
+<meta property="og:updated_time" content="2017-09-13T13:55:33.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ES6">
 <meta name="twitter:description" content="ES6入门  个人总结ES6生命变量的六种方式let const promise reflect proxy generator decorator Symbol Iterator 结构赋值 Array: .from .of …(扩展运算符) .copyWithin .find .findindex .includes .fill .entires .keys .values Object: 属性">
@@ -319,6 +319,7 @@
 <p>Array: .from .of …(扩展运算符) .copyWithin .find .findindex .includes .fill .entires .keys .values</p>
 <p>Object: 属性表达式 .is .assign </p>
 <p>class</p>
+<a id="more"></a>
 <h4 id="1-let-const"><a href="#1-let-const" class="headerlink" title="1.let/const"></a>1.let/const</h4><h5 id="let"><a href="#let" class="headerlink" title="let"></a>let</h5><p>1.块级作用域</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> funcs = [],</div><div class="line">    object = &#123;</div><div class="line">        a: <span class="literal">true</span>,</div><div class="line">        b: <span class="literal">true</span>,</div><div class="line">        c: <span class="literal">true</span></div><div class="line">    &#125;;</div><div class="line"></div><div class="line"><span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">in</span> object) &#123;</div><div class="line">    funcs.push(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(key);</div><div class="line">    &#125;);</div><div class="line">&#125;</div><div class="line"><span class="comment">//因为再执行的时候key都已经变成c了</span></div><div class="line">funcs.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">func</span>) </span>&#123;</div><div class="line">    func();     <span class="comment">// outputs "a", then "b", then "c"</span></div><div class="line">&#125;);				<span class="comment">//if change to var then outputs c c c</span></div></pre></td></tr></table></figure>
 <p>2.不存在变量提升</p>
@@ -704,7 +705,7 @@
             
               <a href="/hexo-centmaster/archives/">
             
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">Artikel</span>
               </a>
             </div>
@@ -717,7 +718,7 @@
             
             <div class="site-state-item site-state-tags">
               
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">Tags</span>
               
             </div>

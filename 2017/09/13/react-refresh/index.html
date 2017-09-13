@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/hexo-centmaster/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/hexo-centmaster/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/hexo-centmaster/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="mvvm," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/hexo-centmaster/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="React更新机制Virtual DOMDOM元素非常庞大，具有复杂的属性，牵一发而动全身。通过JavaScript来模拟DOM树的结构，加快响应时间  建立虚拟DOM树：用JavaScript对象记录节点类型、属性、子节点。通过递归该虚拟DOM建立真正的DOM树  diff算法：因为跨层DOM操作很少，只比较同层DOM，从而将O(n^3)的比较降低到O(n)复杂度，深度优先遍历，记录差异：  替">
+<meta name="keywords" content="mvvm">
+<meta property="og:type" content="article">
+<meta property="og:title" content="react-refresh">
+<meta property="og:url" content="https://github.com/centmaster/hexo-centmaster/2017/09/13/react-refresh/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="React更新机制Virtual DOMDOM元素非常庞大，具有复杂的属性，牵一发而动全身。通过JavaScript来模拟DOM树的结构，加快响应时间  建立虚拟DOM树：用JavaScript对象记录节点类型、属性、子节点。通过递归该虚拟DOM建立真正的DOM树  diff算法：因为跨层DOM操作很少，只比较同层DOM，从而将O(n^3)的比较降低到O(n)复杂度，深度优先遍历，记录差异：  替">
+<meta property="og:updated_time" content="2017-09-13T14:02:55.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="react-refresh">
+<meta name="twitter:description" content="React更新机制Virtual DOMDOM元素非常庞大，具有复杂的属性，牵一发而动全身。通过JavaScript来模拟DOM树的结构，加快响应时间  建立虚拟DOM树：用JavaScript对象记录节点类型、属性、子节点。通过递归该虚拟DOM建立真正的DOM树  diff算法：因为跨层DOM操作很少，只比较同层DOM，从而将O(n^3)的比较降低到O(n)复杂度，深度优先遍历，记录差异：  替">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/hexo-centmaster/',
+    scheme: 'Muse',
+    version: '5.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://github.com/centmaster/hexo-centmaster/2017/09/13/react-refresh/"/>
+
+
+
+
+
+  <title>react-refresh | Hexo</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/hexo-centmaster/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/hexo-centmaster/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/hexo-centmaster/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archiv
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/centmaster/hexo-centmaster/hexo-centmaster/2017/09/13/react-refresh/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="centmaster">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/hexo-centmaster/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">react-refresh</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-13T22:01:39+08:00">
+                2017-09-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="React更新机制"><a href="#React更新机制" class="headerlink" title="React更新机制"></a>React更新机制</h2><h5 id="Virtual-DOM"><a href="#Virtual-DOM" class="headerlink" title="Virtual DOM"></a>Virtual DOM</h5><p>DOM元素非常庞大，具有复杂的属性，牵一发而动全身。通过JavaScript来模拟DOM树的结构，加快响应时间</p>
+<ol>
+<li><p>建立虚拟DOM树：用JavaScript对象记录节点类型、属性、子节点。通过递归该虚拟DOM建立真正的DOM树</p>
+</li>
+<li><p>diff算法：因为跨层DOM操作很少，只比较同层DOM，从而将O(n^3)的比较降低到O(n)复杂度，深度优先遍历，记录差异：</p>
+<ul>
+<li>替换节点类型： div -&gt; p</li>
+<li>增、删、调换子节点</li>
+<li>修改节点属性</li>
+<li>修改文本内容</li>
+</ul>
+<p>记录差异类型，差异内容，压入patch数组</p>
+</li>
+<li><p>根据patch数组，对真实DOM进行操作。</p>
+</li>
+</ol>
+<h5 id="diff算法自我理解"><a href="#diff算法自我理解" class="headerlink" title="diff算法自我理解"></a>diff算法自我理解</h5><p>1.忽略跨层级操作                                tree diff</p>
+<p>2.拥有相同类的组件拥有相似的树结构            component diff</p>
+<p>3.同一个层级之间的节点通过key进行优化            element diff</p>
+<h6 id="tree-diff"><a href="#tree-diff" class="headerlink" title="tree diff"></a>tree diff</h6><p>同一个层级之间更改，不同层级就直接删除</p>
+<h6 id="component-diff"><a href="#component-diff" class="headerlink" title="component diff"></a>component diff</h6><p>同一类型的组件比较，不同类型直接替换。 允许shouldcomponentupdate自己要求是否更新</p>
+<h6 id="element-diff"><a href="#element-diff" class="headerlink" title="element diff"></a>element diff</h6><p>每个element都有自己的key。遍历过程中还有个lastindex表示遍历过的节点中在老节点位置中最右的index。</p>
+<p>然后新节点便利，如果在老节点中index比lastindex小，挪动。新出来的节点的话加上去。如果index比lastindex大，不动。最后再遍历一遍老节点，删除已经没有的老节点。</p>
+<p>说白了：新节点位置已经比左边的新节点位置靠右了，如果在老节点中比你靠左，那就说明得挪嘛。</p>
+<h5 id="更新机制"><a href="#更新机制" class="headerlink" title="更新机制"></a>更新机制</h5><p>我们知道，react的state变化需要借助setState，在setState后再利用virtual dom，虚拟dom差异化算法（diff algorithm）更新元素元素和节点，实现更新机制。下面我们来具体讨论关于自定义元素的整个更新机制的流程。</p>
+<h5 id="react自定义元素通过receiveComponent实现更新的机制"><a href="#react自定义元素通过receiveComponent实现更新的机制" class="headerlink" title="react自定义元素通过receiveComponent实现更新的机制"></a>react自定义元素通过receiveComponent实现更新的机制</h5><p>如下为我们使用setState的具体场景。当我们点击文字的时候就会出发更新事件。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> HelloMessage = React.createClass(&#123;</div><div class="line">  getInitialState: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> &#123;<span class="attr">type</span>: <span class="string">'say:'</span>&#125;;</div><div class="line">  &#125;,</div><div class="line">  changeType:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">this</span>.setState(&#123;<span class="attr">type</span>:<span class="string">'shout:'</span>&#125;)</div><div class="line">  &#125;,</div><div class="line">  render: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> React.createElement(<span class="string">"div"</span>, &#123;<span class="attr">onclick</span>:<span class="keyword">this</span>.changeType&#125;,<span class="keyword">this</span>.state.type, <span class="string">"Hello "</span>, <span class="keyword">this</span>.props.name);</div><div class="line">  &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line"></div><div class="line">React.render(React.createElement(HelloMessage, &#123;<span class="attr">name</span>: <span class="string">"John"</span>&#125;), <span class="built_in">document</span>.getElementById(<span class="string">"container"</span>));</div></pre></td></tr></table></figure>
+<p>我们首先来定义一个ReactClass类。我们可以看到调用setState会出发receiveComponent方法。所有的挂载，更新都应该交给对应的component来管理。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//定义ReactClass类</span></div><div class="line"><span class="keyword">var</span> ReactClass = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">&#125;</div><div class="line"></div><div class="line">ReactClass.prototype.render = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;</div><div class="line"></div><div class="line"><span class="comment">//setState</span></div><div class="line">ReactClass.prototype.setState = <span class="function"><span class="keyword">function</span>(<span class="params">newState</span>) </span>&#123;</div><div class="line">    <span class="keyword">this</span>._reactInternalInstance.receiveComponent(<span class="literal">null</span>, newState);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>接下来我们来具体实现这个类。首先，我们合并改动，用改动后最新的state，props与改动前对比。如果shouldComponentsUpdate为true，我们真正开始更新。然后判断新的属性与原来差的多不多，多的话就直接用新的渲染就好了，不多的话就更新element。如果要更新就继续调用对应的component类对应的receiveComponent，本质上还是递归调用receiveComponent的过程。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//更新</span></div><div class="line">ReactCompositeComponent.prototype.receiveComponent = <span class="function"><span class="keyword">function</span>(<span class="params">nextElement, newState</span>) </span>&#123;</div><div class="line"></div><div class="line">    <span class="comment">//如果接受了新的，就使用最新的element</span></div><div class="line">    <span class="keyword">this</span>._currentElement = nextElement || <span class="keyword">this</span>._currentElement</div><div class="line"></div><div class="line">    <span class="keyword">var</span> inst = <span class="keyword">this</span>._instance;</div><div class="line">    <span class="comment">//合并state</span></div><div class="line">    <span class="keyword">var</span> nextState = $.extend(inst.state, newState);</div><div class="line">    <span class="keyword">var</span> nextProps = <span class="keyword">this</span>._currentElement.props;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="comment">//改写state</span></div><div class="line">    inst.state = nextState;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="comment">//如果inst有shouldComponentUpdate并且返回false。说明组件本身判断不要更新，就直接返回。</span></div><div class="line">    <span class="keyword">if</span> (inst.shouldComponentUpdate &amp;&amp; (inst.shouldComponentUpdate(nextProps, nextState) === <span class="literal">false</span>)) <span class="keyword">return</span>;</div><div class="line"></div><div class="line">    <span class="comment">//生命周期管理，如果有componentWillUpdate，就调用，表示开始要更新了。</span></div><div class="line">    <span class="keyword">if</span> (inst.componentWillUpdate) inst.componentWillUpdate(nextProps, nextState);</div><div class="line"></div><div class="line"></div><div class="line">    <span class="keyword">var</span> prevComponentInstance = <span class="keyword">this</span>._renderedComponent;</div><div class="line">    <span class="keyword">var</span> prevRenderedElement = prevComponentInstance._currentElement;</div><div class="line">    <span class="comment">//重新执行render拿到对应的新element;</span></div><div class="line">    <span class="keyword">var</span> nextRenderedElement = <span class="keyword">this</span>._instance.render();</div><div class="line"></div><div class="line"></div><div class="line">    <span class="comment">//判断是需要更新还是直接就重新渲染</span></div><div class="line">    <span class="comment">//注意这里的_shouldUpdateReactComponent跟上面的不同哦 这个是全局的方法</span></div><div class="line">    <span class="keyword">if</span> (_shouldUpdateReactComponent(prevRenderedElement, nextRenderedElement)) &#123;</div><div class="line">        <span class="comment">//如果需要更新，就继续调用子节点的receiveComponent的方法，传入新的element更新子节点。</span></div><div class="line">        prevComponentInstance.receiveComponent(nextRenderedElement);</div><div class="line">        <span class="comment">//调用componentDidUpdate表示更新完成了</span></div><div class="line">        inst.componentDidUpdate &amp;&amp; inst.componentDidUpdate();</div><div class="line"></div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="comment">//如果发现完全是不同的两种element，那就干脆重新渲染了</span></div><div class="line">        <span class="keyword">var</span> thisID = <span class="keyword">this</span>._rootNodeID;</div><div class="line">        <span class="comment">//重新new一个对应的component，</span></div><div class="line">        <span class="keyword">this</span>._renderedComponent = <span class="keyword">this</span>._instantiateReactComponent(nextRenderedElement);</div><div class="line">        <span class="comment">//重新生成对应的元素内容</span></div><div class="line">        <span class="keyword">var</span> nextMarkup = _renderedComponent.mountComponent(thisID);</div><div class="line">        <span class="comment">//替换整个节点</span></div><div class="line">        $(<span class="string">'[data-reactid="'</span> + <span class="keyword">this</span>._rootNodeID + <span class="string">'"]'</span>).replaceWith(nextMarkup);</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//用来判定两个element需不需要更新</span></div><div class="line"><span class="comment">//这里的key是我们createElement的时候可以选择性的传入的。用来标识这个element，当发现key不同时，我们就可以直接重新渲染，不需要去更新了。</span></div><div class="line"><span class="keyword">var</span> _shouldUpdateReactComponent ＝ <span class="function"><span class="keyword">function</span>(<span class="params">prevElement, nextElement</span>)</span>&#123;</div><div class="line">    <span class="keyword">if</span> (prevElement != <span class="literal">null</span> &amp;&amp; nextElement != <span class="literal">null</span>) &#123;</div><div class="line">    <span class="keyword">var</span> prevType = <span class="keyword">typeof</span> prevElement;</div><div class="line">    <span class="keyword">var</span> nextType = <span class="keyword">typeof</span> nextElement;</div><div class="line">    <span class="keyword">if</span> (prevType === <span class="string">'string'</span> || prevType === <span class="string">'number'</span>) &#123;</div><div class="line">      <span class="keyword">return</span> nextType === <span class="string">'string'</span> || nextType === <span class="string">'number'</span>;</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">      <span class="keyword">return</span> nextType === <span class="string">'object'</span> &amp;&amp; prevElement.type === nextElement.type &amp;&amp; prevElement.key === nextElement.key;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>其实这种更新方式与dom节点的diff算法一致，高效的更新渲染组件。</p>
+<h5 id="react的dom元素使用receiveComponent更新的实现"><a href="#react的dom元素使用receiveComponent更新的实现" class="headerlink" title="react的dom元素使用receiveComponent更新的实现"></a>react的dom元素使用receiveComponent更新的实现</h5><p>说到这里我们必须要聊一聊diff算法的实现。</p>
+<p>想一下我们怎么以最小代价去更新这段html呢。不难发现其实主要包括两个部分：</p>
+<ol>
+<li>属性的更新，包括对特殊属性比如事件的处理</li>
+<li>子节点的更新,这个比较复杂，为了得到最好的效率，我们需要处理下面这些问题：<ul>
+<li>拿新的子节点树跟以前老的子节点树对比，找出他们之间的差别。我们称之为diff</li>
+<li>所有差别找出后，再一次性的去更新。我们称之为patch</li>
+</ul>
+</li>
+</ol>
+<p>所以我们定义receiveComponent方法如下</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">ReactDOMComponent.prototype.receiveComponent = <span class="function"><span class="keyword">function</span>(<span class="params">nextElement</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> lastProps = <span class="keyword">this</span>._currentElement.props;</div><div class="line">    <span class="keyword">var</span> nextProps = nextElement.props;</div><div class="line"></div><div class="line">    <span class="keyword">this</span>._currentElement = nextElement;</div><div class="line">    <span class="comment">//需要单独的更新属性</span></div><div class="line">    <span class="keyword">this</span>._updateDOMProperties(lastProps, nextProps);</div><div class="line">    <span class="comment">//再更新子节点</span></div><div class="line">    <span class="keyword">this</span>._updateDOMChildren(nextElement.props.children);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>首先是属性的变更。只需要把过时的删掉，添加上新的属性就好。要注意对于特殊事件的属性作出特殊处理。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line">ReactDOMComponent.prototype._updateDOMProperties = <span class="function"><span class="keyword">function</span>(<span class="params">lastProps, nextProps</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> propKey;</div><div class="line">    <span class="comment">//遍历，当一个老的属性不在新的属性集合里时，需要删除掉。</span></div><div class="line"></div><div class="line">    <span class="keyword">for</span> (propKey <span class="keyword">in</span> lastProps) &#123;</div><div class="line">        <span class="comment">//新的属性里有，或者propKey是在原型上的直接跳过。这样剩下的都是不在新属性集合里的。需要删除</span></div><div class="line">        <span class="keyword">if</span> (nextProps.hasOwnProperty(propKey) || !lastProps.hasOwnProperty(propKey)) &#123;</div><div class="line">            <span class="keyword">continue</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="comment">//对于那种特殊的，比如这里的事件监听的属性我们需要去掉监听</span></div><div class="line">        <span class="keyword">if</span> (<span class="regexp">/^on[A-Za-z]/</span>.test(propKey)) &#123;</div><div class="line">            <span class="keyword">var</span> eventType = propKey.replace(<span class="string">'on'</span>, <span class="string">''</span>);</div><div class="line">            <span class="comment">//针对当前的节点取消事件代理</span></div><div class="line">            $(<span class="built_in">document</span>).undelegate(<span class="string">'[data-reactid="'</span> + <span class="keyword">this</span>._rootNodeID + <span class="string">'"]'</span>, eventType, lastProps[propKey]);</div><div class="line">            <span class="keyword">continue</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="comment">//从dom上删除不需要的属性</span></div><div class="line">        $(<span class="string">'[data-reactid="'</span> + <span class="keyword">this</span>._rootNodeID + <span class="string">'"]'</span>).removeAttr(propKey)</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">//对于新的属性，需要写到dom节点上</span></div><div class="line">    <span class="keyword">for</span> (propKey <span class="keyword">in</span> nextProps) &#123;</div><div class="line">        <span class="comment">//对于事件监听的属性我们需要特殊处理</span></div><div class="line">        <span class="keyword">if</span> (<span class="regexp">/^on[A-Za-z]/</span>.test(propKey)) &#123;</div><div class="line">            <span class="keyword">var</span> eventType = propKey.replace(<span class="string">'on'</span>, <span class="string">''</span>);</div><div class="line">            <span class="comment">//以前如果已经有，说明有了监听，需要先去掉</span></div><div class="line">            lastProps[propKey] &amp;&amp; $(<span class="built_in">document</span>).undelegate(<span class="string">'[data-reactid="'</span> + <span class="keyword">this</span>._rootNodeID + <span class="string">'"]'</span>, eventType, lastProps[propKey]);</div><div class="line">            <span class="comment">//针对当前的节点添加事件代理,以_rootNodeID为命名空间</span></div><div class="line">            $(<span class="built_in">document</span>).delegate(<span class="string">'[data-reactid="'</span> + <span class="keyword">this</span>._rootNodeID + <span class="string">'"]'</span>, eventType + <span class="string">'.'</span> + <span class="keyword">this</span>._rootNodeID, nextProps[propKey]);</div><div class="line">            <span class="keyword">continue</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (propKey == <span class="string">'children'</span>) <span class="keyword">continue</span>;</div><div class="line"></div><div class="line">        <span class="comment">//添加新的属性，或者是更新老的同名属性</span></div><div class="line">        $(<span class="string">'[data-reactid="'</span> + <span class="keyword">this</span>._rootNodeID + <span class="string">'"]'</span>).prop(propKey, nextProps[propKey])</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>接下来是最核心的部分，关于dom节点的更新。把大象装进冰箱无非两部，找到差异（diff），更新（patch）</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">ReactDOMComponent.prototype.receiveComponent = <span class="function"><span class="keyword">function</span>(<span class="params">nextElement</span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> lastProps = <span class="keyword">this</span>._currentElement.props;</div><div class="line">    <span class="keyword">var</span> nextProps = nextElement.props;</div><div class="line"></div><div class="line">    <span class="keyword">this</span>._currentElement = nextElement;</div><div class="line">    <span class="comment">//需要单独的更新属性</span></div><div class="line">    <span class="keyword">this</span>._updateDOMProperties(lastProps,nextProps);</div><div class="line">    <span class="comment">//再更新子节点</span></div><div class="line">    <span class="keyword">this</span>._updateDOMChildren(nextProps.children);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//全局的更新深度标识</span></div><div class="line"><span class="keyword">var</span> updateDepth = <span class="number">0</span>;</div><div class="line"><span class="comment">//全局的更新队列，所有的差异都存在这里</span></div><div class="line"><span class="keyword">var</span> diffQueue = [];</div><div class="line"></div><div class="line">ReactDOMComponent.prototype._updateDOMChildren = <span class="function"><span class="keyword">function</span>(<span class="params">nextChildrenElements</span>)</span>&#123;</div><div class="line">    updateDepth++</div><div class="line">    <span class="comment">//_diff用来递归找出差别,组装差异对象,添加到更新队列diffQueue。</span></div><div class="line">    <span class="keyword">this</span>._diff(diffQueue,nextChildrenElements);</div><div class="line">    updateDepth--</div><div class="line">    <span class="keyword">if</span>(updateDepth == <span class="number">0</span>)&#123;</div><div class="line">        <span class="comment">//在需要的时候调用patch，执行具体的dom操作</span></div><div class="line">        <span class="keyword">this</span>._patch(diffQueue);</div><div class="line">        diffQueue = [];</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><code>_diff</code>内部也会递归调用子节点的receiveComponent于是当某个子节点也是浏览器普通节点，就也会走_updateDOMChildren这一步。所以这里使用了updateDepth来记录递归的过程，只有等递归回来updateDepth为0时，代表整个差异已经分析完毕，可以开始使用patch来处理差异队列了。</p>
+<p>首先我们先来看diff的实现</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//差异更新的几种类型</span></div><div class="line"><span class="keyword">var</span> UPATE_TYPES = &#123;</div><div class="line">    MOVE_EXISTING: <span class="number">1</span>,</div><div class="line">    REMOVE_NODE: <span class="number">2</span>,</div><div class="line">    INSERT_MARKUP: <span class="number">3</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">//普通的children是一个数组，此方法把它转换成一个map,key就是element的key,如果是text节点或者element创建时并没有传入key,就直接用在数组里的index标识</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">flattenChildren</span>(<span class="params">componentChildren</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> child;</div><div class="line">    <span class="keyword">var</span> name;</div><div class="line">    <span class="keyword">var</span> childrenMap = &#123;&#125;;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; componentChildren.length; i++) &#123;</div><div class="line">        child = componentChildren[i];</div><div class="line">        name = child &amp;&amp; child._currentelement &amp;&amp; child._currentelement.key ? child._currentelement.key : i.toString(<span class="number">36</span>);</div><div class="line">        childrenMap[name] = child;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> childrenMap;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">//主要用来生成子节点elements的component集合</span></div><div class="line"><span class="comment">//这边注意，有个判断逻辑，如果发现是更新，就会继续使用以前的componentInstance,调用对应的receiveComponent。</span></div><div class="line"><span class="comment">//如果是新的节点，就会重新生成一个新的componentInstance，</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">generateComponentChildren</span>(<span class="params">prevChildren, nextChildrenElements</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> nextChildren = &#123;&#125;;</div><div class="line">    nextChildrenElements = nextChildrenElements || [];</div><div class="line">    $.each(nextChildrenElements, <span class="function"><span class="keyword">function</span>(<span class="params">index, element</span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> name = element.key ? element.key : index;</div><div class="line">        <span class="keyword">var</span> prevChild = prevChildren &amp;&amp; prevChildren[name];</div><div class="line">        <span class="keyword">var</span> prevElement = prevChild &amp;&amp; prevChild._currentElement;</div><div class="line">        <span class="keyword">var</span> nextElement = element;</div><div class="line"></div><div class="line">        <span class="comment">//调用_shouldUpdateReactComponent判断是否是更新</span></div><div class="line">        <span class="keyword">if</span> (_shouldUpdateReactComponent(prevElement, nextElement)) &#123;</div><div class="line">            <span class="comment">//更新的话直接递归调用子节点的receiveComponent就好了</span></div><div class="line">            prevChild.receiveComponent(nextElement);</div><div class="line">            <span class="comment">//然后继续使用老的component</span></div><div class="line">            nextChildren[name] = prevChild;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="comment">//对于没有老的，那就重新新增一个，重新生成一个component</span></div><div class="line">            <span class="keyword">var</span> nextChildInstance = instantiateReactComponent(nextElement, <span class="literal">null</span>);</div><div class="line">            <span class="comment">//使用新的component</span></div><div class="line">            nextChildren[name] = nextChildInstance;</div><div class="line">        &#125;</div><div class="line">    &#125;)</div><div class="line"></div><div class="line">    <span class="keyword">return</span> nextChildren;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">//_diff用来递归找出差别,组装差异对象,添加到更新队列diffQueue。</span></div><div class="line">ReactDOMComponent.prototype._diff = <span class="function"><span class="keyword">function</span>(<span class="params">diffQueue, nextChildrenElements</span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> self = <span class="keyword">this</span>;</div><div class="line">  <span class="comment">//拿到之前的子节点的 component类型对象的集合,这个是在刚开始渲染时赋值的，记不得的可以翻上面</span></div><div class="line">  <span class="comment">//_renderedChildren 本来是数组，我们搞成map</span></div><div class="line">  <span class="keyword">var</span> prevChildren = flattenChildren(self._renderedChildren);</div><div class="line">  <span class="comment">//生成新的子节点的component对象集合，这里注意，会复用老的component对象</span></div><div class="line">  <span class="keyword">var</span> nextChildren = generateComponentChildren(prevChildren, nextChildrenElements);</div><div class="line">  <span class="comment">//重新赋值_renderedChildren，使用最新的。</span></div><div class="line">  self._renderedChildren = []</div><div class="line">  $.each(nextChildren, <span class="function"><span class="keyword">function</span>(<span class="params">key, instance</span>) </span>&#123;</div><div class="line">    self._renderedChildren.push(instance);</div><div class="line">  &#125;)</div><div class="line"></div><div class="line"></div><div class="line">  <span class="keyword">var</span> nextIndex = <span class="number">0</span>; <span class="comment">//代表到达的新的节点的index</span></div><div class="line">  <span class="comment">//通过对比两个集合的差异，组装差异节点添加到队列中</span></div><div class="line">  <span class="keyword">for</span> (name <span class="keyword">in</span> nextChildren) &#123;</div><div class="line">    <span class="keyword">if</span> (!nextChildren.hasOwnProperty(name)) &#123;</div><div class="line">      <span class="keyword">continue</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">var</span> prevChild = prevChildren &amp;&amp; prevChildren[name];</div><div class="line">    <span class="keyword">var</span> nextChild = nextChildren[name];</div><div class="line">    <span class="comment">//相同的话，说明是使用的同一个component,所以我们需要做移动的操作</span></div><div class="line">    <span class="keyword">if</span> (prevChild === nextChild) &#123;</div><div class="line">      <span class="comment">//添加差异对象，类型：MOVE_EXISTING</span></div><div class="line">      diffQueue.push(&#123;</div><div class="line">        parentId: self._rootNodeID,</div><div class="line">        parentNode: $(<span class="string">'[data-reactid='</span> + self._rootNodeID + <span class="string">']'</span>),</div><div class="line">        type: UPATE_TYPES.MOVE_EXISTING,</div><div class="line">        fromIndex: prevChild._mountIndex,</div><div class="line">        toIndex: nextIndex</div><div class="line">      &#125;)</div><div class="line">    &#125; <span class="keyword">else</span> &#123; <span class="comment">//如果不相同，说明是新增加的节点</span></div><div class="line">      <span class="comment">//但是如果老的还存在，就是element不同，但是component一样。我们需要把它对应的老的element删除。</span></div><div class="line">      <span class="keyword">if</span> (prevChild) &#123;</div><div class="line">        <span class="comment">//添加差异对象，类型：REMOVE_NODE</span></div><div class="line">        diffQueue.push(&#123;</div><div class="line">          parentId: self._rootNodeID,</div><div class="line">          parentNode: $(<span class="string">'[data-reactid='</span> + self._rootNodeID + <span class="string">']'</span>),</div><div class="line">          type: UPATE_TYPES.REMOVE_NODE,</div><div class="line">          fromIndex: prevChild._mountIndex,</div><div class="line">          toIndex: <span class="literal">null</span></div><div class="line">        &#125;)</div><div class="line"></div><div class="line">        <span class="comment">//如果以前已经渲染过了，记得先去掉以前所有的事件监听，通过命名空间全部清空</span></div><div class="line">        <span class="keyword">if</span> (prevChild._rootNodeID) &#123;</div><div class="line">            $(<span class="built_in">document</span>).undelegate(<span class="string">'.'</span> + prevChild._rootNodeID);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">      &#125;</div><div class="line">      <span class="comment">//新增加的节点，也组装差异对象放到队列里</span></div><div class="line">      <span class="comment">//添加差异对象，类型：INSERT_MARKUP</span></div><div class="line">      diffQueue.push(&#123;</div><div class="line">        parentId: self._rootNodeID,</div><div class="line">        parentNode: $(<span class="string">'[data-reactid='</span> + self._rootNodeID + <span class="string">']'</span>),</div><div class="line">        type: UPATE_TYPES.INSERT_MARKUP,</div><div class="line">        fromIndex: <span class="literal">null</span>,</div><div class="line">        toIndex: nextIndex,</div><div class="line">        markup: nextChild.mountComponent() <span class="comment">//新增的节点，多一个此属性，表示新节点的dom内容</span></div><div class="line">      &#125;)</div><div class="line">    &#125;</div><div class="line">    <span class="comment">//更新mount的index</span></div><div class="line">    nextChild._mountIndex = nextIndex;</div><div class="line">    nextIndex++;</div><div class="line">  &#125;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">  <span class="comment">//对于老的节点里有，新的节点里没有的那些，也全都删除掉</span></div><div class="line">  <span class="keyword">for</span> (name <span class="keyword">in</span> prevChildren) &#123;</div><div class="line">    <span class="keyword">if</span> (prevChildren.hasOwnProperty(name) &amp;&amp; !(nextChildren &amp;&amp; nextChildren.hasOwnProperty(name))) &#123;</div><div class="line">      <span class="comment">//添加差异对象，类型：REMOVE_NODE</span></div><div class="line">      diffQueue.push(&#123;</div><div class="line">        parentId: self._rootNodeID,</div><div class="line">        parentNode: $(<span class="string">'[data-reactid='</span> + self._rootNodeID + <span class="string">']'</span>),</div><div class="line">        type: UPATE_TYPES.REMOVE_NODE,</div><div class="line">        fromIndex: prevChild._mountIndex,</div><div class="line">        toIndex: <span class="literal">null</span></div><div class="line">      &#125;)</div><div class="line">      <span class="comment">//如果以前已经渲染过了，记得先去掉以前所有的事件监听</span></div><div class="line">      <span class="keyword">if</span> (prevChildren[name]._rootNodeID) &#123;</div><div class="line">        $(<span class="built_in">document</span>).undelegate(<span class="string">'.'</span> + prevChildren[name]._rootNodeID);</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>大概就做了如下几件事，首先component用来放element，把数组转成了对象map，用 key作为每个element的标识，递归的根据key查找看能复用，然后根据前后节点的不同分为这么几个情况，这几个情况分别处理。</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>情况</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MOVE_EXISTING</td>
+<td>新的component类型在老的集合里也有，并且element是可以更新的类型，在generateComponentChildren我们已经调用了receiveComponent，这种情况下prevChild=nextChild,那我们就需要做出移动的操作，可以复用以前的dom节点。</td>
+</tr>
+<tr>
+<td>INSERT_MARKUP</td>
+<td>新的component类型不在老的集合里，那么就是全新的节点，我们需要插入新的节点</td>
+</tr>
+<tr>
+<td>REMOVE_NODE</td>
+<td>老的component类型，在新的集合里也有，但是对应的element不同了不能直接复用直接更新，那我们也得删除。</td>
+</tr>
+<tr>
+<td>REMOVE_NODE</td>
+<td>老的component不在新的集合里的，我们需要删除</td>
+</tr>
+</tbody>
+</table>
+<p>接下来我们一起来处理patch的实现。<code>_patch</code>主要就是挨个遍历差异队列，遍历两次，第一次删除掉所有需要变动的节点，然后第二次插入新的节点还有修改的节点。这里为什么可以直接挨个的插入呢？原因就是我们在diff阶段添加差异节点到差异队列时，本身就是有序的，也就是说对于新增节点（包括move和insert的）在队列里的顺序就是最终dom的顺序，所以我们才可以挨个的直接根据index去塞入节点。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//用于将childNode插入到指定位置</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">insertChildAt</span>(<span class="params">parentNode, childNode, index</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> beforeChild = parentNode.children().get(index);</div><div class="line">    beforeChild ? childNode.insertBefore(beforeChild) : childNode.appendTo(parentNode);</div><div class="line">&#125;</div><div class="line"></div><div class="line">ReactDOMComponent.prototype._patch = <span class="function"><span class="keyword">function</span>(<span class="params">updates</span>) </span>&#123;</div><div class="line">    <span class="keyword">var</span> update;</div><div class="line">    <span class="keyword">var</span> initialChildren = &#123;&#125;;</div><div class="line">    <span class="keyword">var</span> deleteChildren = [];</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; updates.length; i++) &#123;</div><div class="line">        update = updates[i];</div><div class="line">        <span class="keyword">if</span> (update.type === UPATE_TYPES.MOVE_EXISTING || update.type === UPATE_TYPES.REMOVE_NODE) &#123;</div><div class="line">            <span class="keyword">var</span> updatedIndex = update.fromIndex;</div><div class="line">            <span class="keyword">var</span> updatedChild = $(update.parentNode.children().get(updatedIndex));</div><div class="line">            <span class="keyword">var</span> parentID = update.parentID;</div><div class="line"></div><div class="line">            <span class="comment">//所有需要更新的节点都保存下来，方便后面使用</span></div><div class="line">            initialChildren[parentID] = initialChildren[parentID] || [];</div><div class="line">            <span class="comment">//使用parentID作为简易命名空间</span></div><div class="line">            initialChildren[parentID][updatedIndex] = updatedChild;</div><div class="line"></div><div class="line"></div><div class="line">            <span class="comment">//所有需要修改的节点先删除,对于move的，后面再重新插入到正确的位置即可</span></div><div class="line">            deleteChildren.push(updatedChild)</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">//删除所有需要先删除的</span></div><div class="line">    $.each(deleteChildren, <span class="function"><span class="keyword">function</span>(<span class="params">index, child</span>) </span>&#123;</div><div class="line">        $(child).remove();</div><div class="line">    &#125;)</div><div class="line"></div><div class="line"></div><div class="line">    <span class="comment">//再遍历一次，这次处理新增的节点，还有修改的节点这里也要重新插入</span></div><div class="line">    <span class="keyword">for</span> (<span class="keyword">var</span> k = <span class="number">0</span>; k &lt; updates.length; k++) &#123;</div><div class="line">        update = updates[k];</div><div class="line">        <span class="keyword">switch</span> (update.type) &#123;</div><div class="line">            <span class="keyword">case</span> UPATE_TYPES.INSERT_MARKUP:</div><div class="line">                insertChildAt(update.parentNode, $(update.markup), update.toIndex);</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            <span class="keyword">case</span> UPATE_TYPES.MOVE_EXISTING:</div><div class="line">                insertChildAt(update.parentNode, initialChildren[update.parentID][update.fromIndex], update.toIndex);</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            <span class="keyword">case</span> UPATE_TYPES.REMOVE_NODE:</div><div class="line">                <span class="comment">// 什么都不需要做，因为上面已经帮忙删除掉了</span></div><div class="line">                <span class="keyword">break</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这样整个的更新机制就完成了。我们再来简单回顾下reactjs的差异算法：</p>
+<p>首先是所有的component都实现了receiveComponent来负责自己的更新，而浏览器默认元素的更新最为复杂，也就是经常说的 diff algorithm。</p>
+<p>react有一个全局_shouldUpdateReactComponent用来根据element的key来判断是更新还是重新渲染，这是第一个差异判断。比如自定义元素里，就使用这个判断，通过这种标识判断，会变得特别高效。</p>
+<p>每个类型的元素都要处理好自己的更新：</p>
+<ol>
+<li>自定义元素的更新，主要是更新render出的节点，做甩手掌柜交给render出的节点的对应component去管理更新。</li>
+<li>text节点的更新很简单，直接更新文案。</li>
+<li>浏览器基本元素的更新，分为两块：<ul>
+<li>先是更新属性，对比出前后属性的不同，局部更新。并且处理特殊属性，比如事件绑定。</li>
+<li>然后是子节点的更新，子节点更新主要是找出差异对象，找差异对象的时候也会使用上面的_shouldUpdateReactComponent来判断，如果是可以直接更新的就会递归调用子节点的更新，这样也会递归查找差异对象，这里还会使用lastIndex这种做一种优化，使一些节点保留位置，之后根据差异对象操作dom元素（位置变动，删除，添加等）。</li>
+</ul>
+</li>
+</ol>
+<p>整个reactjs的差异算法就是这个样子。最核心的两个_shouldUpdateReactComponent以及diff,patch算法。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/hexo-centmaster/tags/mvvm/" rel="tag"># mvvm</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/hexo-centmaster/2017/09/13/readbook/" rel="next" title="readbook">
+                <i class="fa fa-chevron-left"></i> readbook
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/hexo-centmaster/2017/09/13/v-dom/" rel="prev" title="v-dom">
+                v-dom <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          
+            <p class="site-author-name" itemprop="name">centmaster</p>
+            <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+            
+              <a href="/hexo-centmaster/archives/">
+            
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">Artikel</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">Tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#React更新机制"><span class="nav-number">1.</span> <span class="nav-text">React更新机制</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Virtual-DOM"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">Virtual DOM</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#diff算法自我理解"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">diff算法自我理解</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#tree-diff"><span class="nav-number">1.0.0.2.1.</span> <span class="nav-text">tree diff</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#component-diff"><span class="nav-number">1.0.0.2.2.</span> <span class="nav-text">component diff</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#element-diff"><span class="nav-number">1.0.0.2.3.</span> <span class="nav-text">element diff</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#更新机制"><span class="nav-number">1.0.0.3.</span> <span class="nav-text">更新机制</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#react自定义元素通过receiveComponent实现更新的机制"><span class="nav-number">1.0.0.4.</span> <span class="nav-text">react自定义元素通过receiveComponent实现更新的机制</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#react的dom元素使用receiveComponent更新的实现"><span class="nav-number">1.0.0.5.</span> <span class="nav-text">react的dom元素使用receiveComponent更新的实现</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">centmaster</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a></div>
+
+  <span class="post-meta-divider">|</span>
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.2</div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/hexo-centmaster/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/hexo-centmaster/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/hexo-centmaster/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/hexo-centmaster/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/hexo-centmaster/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/hexo-centmaster/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/hexo-centmaster/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/hexo-centmaster/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  <script type="text/javascript" src="/hexo-centmaster/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/hexo-centmaster/js/src/post-details.js?v=5.1.2"></script>
+
+
+  
+  <script type="text/javascript" src="/hexo-centmaster/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/hexo-centmaster/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/hexo-centmaster/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

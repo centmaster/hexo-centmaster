@@ -102,7 +102,7 @@
 <meta property="og:url" content="https://github.com/centmaster/hexo-centmaster/2017/09/13/readbook/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="读书笔记Javascript秘密花园删除属性的唯一方法是使用 delete 操作符；设置属性为 undefined 或者 null 并不能真正的删除属性， 而仅仅是移除了属性和值的关联。 一个错误特性被经常使用，那就是扩展 Object.prototype 或者其他内置类型的原型对象。 这种技术被称之为 monkey patching 并且会破坏封装。虽然它被广泛的应用到一些 JavaScript">
-<meta property="og:updated_time" content="2017-09-13T13:46:19.000Z">
+<meta property="og:updated_time" content="2017-09-13T13:56:30.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="readbook">
 <meta name="twitter:description" content="读书笔记Javascript秘密花园删除属性的唯一方法是使用 delete 操作符；设置属性为 undefined 或者 null 并不能真正的删除属性， 而仅仅是移除了属性和值的关联。 一个错误特性被经常使用，那就是扩展 Object.prototype 或者其他内置类型的原型对象。 这种技术被称之为 monkey patching 并且会破坏封装。虽然它被广泛的应用到一些 JavaScript">
@@ -318,6 +318,7 @@
         <h2 id="读书笔记"><a href="#读书笔记" class="headerlink" title="读书笔记"></a>读书笔记</h2><h3 id="Javascript秘密花园"><a href="#Javascript秘密花园" class="headerlink" title="Javascript秘密花园"></a>Javascript秘密花园</h3><p>删除属性的唯一方法是使用 <code>delete</code> 操作符；设置属性为 <code>undefined</code> 或者 <code>null</code> 并不能真正的删除属性， 而<strong>仅仅</strong>是移除了属性和值的关联。</p>
 <p>一个错误特性被经常使用，那就是扩展 <code>Object.prototype</code> 或者其他内置类型的原型对象。</p>
 <p>这种技术被称之为 <a href="http://en.wikipedia.org/wiki/Monkey_patch" target="_blank" rel="external">monkey patching</a> 并且会破坏<em>封装</em>。虽然它被广泛的应用到一些 JavaScript 类库中比如 <a href="http://prototypejs.org/" target="_blank" rel="external">Prototype</a>, 但是我仍然不认为为内置类型添加一些<em>非标准</em>的函数是个好主意。</p>
+<a id="more"></a>
 <h5 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h5><p>在构造函数内部 - 也就是被调用的函数内 - <code>this</code> 指向新创建的对象 <code>Object</code>。 这个<strong>新创建</strong>的对象的 <a href="http://bonsaiden.github.io/JavaScript-Garden/zh/#object.prototype" target="_blank" rel="external"><code>prototype</code></a> 被指向到构造函数的 <code>prototype</code>。</p>
 <p>如果被调用的函数没有显式的 <code>return</code> 表达式，则隐式的会返回 <code>this</code> 对象 - 也就是新创建的对象。</p>
 <p>ps: 什么之前修改一个实例的原型链上方法不会改变另一个实例方法。因为并没有真正改变原型链上的方法，改变的这个方法其实是写在这个实例自身上的。覆盖了原来的方法，如果用<em>proto</em>找到原型链上的方法改动，另一个也改了。</p>
@@ -423,6 +424,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/hexo-centmaster/2017/09/13/react-refresh/" rel="prev" title="react-refresh">
+                react-refresh <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -497,7 +502,7 @@
             
               <a href="/hexo-centmaster/archives/">
             
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">Artikel</span>
               </a>
             </div>
@@ -510,7 +515,7 @@
             
             <div class="site-state-item site-state-tags">
               
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">Tags</span>
               
             </div>

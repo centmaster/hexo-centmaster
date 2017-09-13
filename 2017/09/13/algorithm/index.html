@@ -95,17 +95,17 @@
 
 
 
-<meta name="description" content="算法与数据结构基础知识二进制12345let a=123;let b=a.toString(2);if(a&amp;lt;0)&amp;#123;  b=~b+1;  //取反加一就是取负值&amp;#125; 算法问题分类树广度优先遍历，深度优先遍历1234567891011121314var levelOrderTraversal = function(node) &amp;#123;  if(!node) &amp;#123;">
+<meta name="description" content="算法与数据结构基础知识二进制12345let a=123;let b=a.toString(2);if(a&amp;lt;0)&amp;#123;  b=~b+1;  //取反加一就是取负值&amp;#125;">
 <meta name="keywords" content="interview">
 <meta property="og:type" content="article">
 <meta property="og:title" content="algorithm">
 <meta property="og:url" content="https://github.com/centmaster/hexo-centmaster/2017/09/13/algorithm/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="算法与数据结构基础知识二进制12345let a=123;let b=a.toString(2);if(a&amp;lt;0)&amp;#123;  b=~b+1;  //取反加一就是取负值&amp;#125; 算法问题分类树广度优先遍历，深度优先遍历1234567891011121314var levelOrderTraversal = function(node) &amp;#123;  if(!node) &amp;#123;">
-<meta property="og:updated_time" content="2017-09-13T13:44:41.000Z">
+<meta property="og:description" content="算法与数据结构基础知识二进制12345let a=123;let b=a.toString(2);if(a&amp;lt;0)&amp;#123;  b=~b+1;  //取反加一就是取负值&amp;#125;">
+<meta property="og:updated_time" content="2017-09-13T13:57:35.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="algorithm">
-<meta name="twitter:description" content="算法与数据结构基础知识二进制12345let a=123;let b=a.toString(2);if(a&amp;lt;0)&amp;#123;  b=~b+1;  //取反加一就是取负值&amp;#125; 算法问题分类树广度优先遍历，深度优先遍历1234567891011121314var levelOrderTraversal = function(node) &amp;#123;  if(!node) &amp;#123;">
+<meta name="twitter:description" content="算法与数据结构基础知识二进制12345let a=123;let b=a.toString(2);if(a&amp;lt;0)&amp;#123;  b=~b+1;  //取反加一就是取负值&amp;#125;">
 
 
 
@@ -316,6 +316,7 @@
 
       
         <h2 id="算法与数据结构"><a href="#算法与数据结构" class="headerlink" title="算法与数据结构"></a>算法与数据结构</h2><h3 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h3><h5 id="二进制"><a href="#二进制" class="headerlink" title="二进制"></a>二进制</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> a=<span class="number">123</span>;</div><div class="line"><span class="keyword">let</span> b=a.toString(<span class="number">2</span>);</div><div class="line"><span class="keyword">if</span>(a&lt;<span class="number">0</span>)&#123;</div><div class="line">  b=~b+<span class="number">1</span>;  <span class="comment">//取反加一就是取负值</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<a id="more"></a>
 <h3 id="算法问题分类"><a href="#算法问题分类" class="headerlink" title="算法问题分类"></a>算法问题分类</h3><h4 id="树"><a href="#树" class="headerlink" title="树"></a>树</h4><h5 id="广度优先遍历，深度优先遍历"><a href="#广度优先遍历，深度优先遍历" class="headerlink" title="广度优先遍历，深度优先遍历"></a>广度优先遍历，深度优先遍历</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> levelOrderTraversal = <span class="function"><span class="keyword">function</span>(<span class="params">node</span>) </span>&#123;</div><div class="line">  <span class="keyword">if</span>(!node) &#123;</div><div class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'Empty Tree'</span>)</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="keyword">var</span> que = []</div><div class="line">  que.push(node)</div><div class="line">  <span class="keyword">while</span>(que.length !== <span class="number">0</span>) &#123;</div><div class="line">    node = que.shift()</div><div class="line">    <span class="built_in">console</span>.log(node.value)</div><div class="line">    <span class="keyword">if</span>(node.left) que.push(node.left)</div><div class="line">    <span class="keyword">if</span>(node.right) que.push(node.right)</div><div class="line">  &#125;</div><div class="line">&#125;			<span class="comment">//广度利用队列</span></div></pre></td></tr></table></figure>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> preOrderUnRecur = <span class="function"><span class="keyword">function</span>(<span class="params">node</span>) </span>&#123;</div><div class="line">  <span class="keyword">if</span>(!node) &#123;</div><div class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'Empty Tree'</span>)</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">var</span> stack = []</div><div class="line">  stack.push(node)</div><div class="line">  <span class="keyword">while</span>(stack.length !== <span class="number">0</span>) &#123;</div><div class="line">    node = stack.pop()</div><div class="line">    <span class="built_in">console</span>.log(node.value)    </div><div class="line">    <span class="keyword">if</span>(node.right) stack.push(node.right)</div><div class="line">    <span class="keyword">if</span>(node.left) stack.push(node.left)</div><div class="line">  &#125;</div><div class="line">&#125;				<span class="comment">//深度利用栈</span></div></pre></td></tr></table></figure>
 <h5 id="后序遍历"><a href="#后序遍历" class="headerlink" title="后序遍历"></a>后序遍历</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> postOrder = <span class="function"><span class="keyword">function</span> (<span class="params">node</span>) </span>&#123;  </div><div class="line"><span class="keyword">if</span>(node)&#123;  </div><div class="line">postOrder(node.left);  </div><div class="line">postOrder(node.right);  </div><div class="line"><span class="built_in">console</span>.log(node.value);  </div><div class="line">&#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -464,7 +465,7 @@
             
               <a href="/hexo-centmaster/archives/">
             
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">Artikel</span>
               </a>
             </div>
@@ -477,7 +478,7 @@
             
             <div class="site-state-item site-state-tags">
               
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">Tags</span>
               
             </div>
