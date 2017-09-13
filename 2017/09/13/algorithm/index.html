@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/hexo-centmaster/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/hexo-centmaster/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/hexo-centmaster/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="interview," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/hexo-centmaster/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="算法与数据结构基础知识二进制12345let a=123;let b=a.toString(2);if(a&amp;lt;0)&amp;#123;  b=~b+1;  //取反加一就是取负值&amp;#125; 算法问题分类树广度优先遍历，深度优先遍历1234567891011121314var levelOrderTraversal = function(node) &amp;#123;  if(!node) &amp;#123;">
+<meta name="keywords" content="interview">
+<meta property="og:type" content="article">
+<meta property="og:title" content="algorithm">
+<meta property="og:url" content="https://github.com/centmaster/hexo-centmaster/2017/09/13/algorithm/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="算法与数据结构基础知识二进制12345let a=123;let b=a.toString(2);if(a&amp;lt;0)&amp;#123;  b=~b+1;  //取反加一就是取负值&amp;#125; 算法问题分类树广度优先遍历，深度优先遍历1234567891011121314var levelOrderTraversal = function(node) &amp;#123;  if(!node) &amp;#123;">
+<meta property="og:updated_time" content="2017-09-13T13:44:41.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="algorithm">
+<meta name="twitter:description" content="算法与数据结构基础知识二进制12345let a=123;let b=a.toString(2);if(a&amp;lt;0)&amp;#123;  b=~b+1;  //取反加一就是取负值&amp;#125; 算法问题分类树广度优先遍历，深度优先遍历1234567891011121314var levelOrderTraversal = function(node) &amp;#123;  if(!node) &amp;#123;">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/hexo-centmaster/',
+    scheme: 'Muse',
+    version: '5.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://github.com/centmaster/hexo-centmaster/2017/09/13/algorithm/"/>
+
+
+
+
+
+  <title>algorithm | Hexo</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/hexo-centmaster/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/hexo-centmaster/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/hexo-centmaster/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archiv
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/centmaster/hexo-centmaster/hexo-centmaster/2017/09/13/algorithm/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="centmaster">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/hexo-centmaster/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">algorithm</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-13T21:42:19+08:00">
+                2017-09-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="算法与数据结构"><a href="#算法与数据结构" class="headerlink" title="算法与数据结构"></a>算法与数据结构</h2><h3 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h3><h5 id="二进制"><a href="#二进制" class="headerlink" title="二进制"></a>二进制</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> a=<span class="number">123</span>;</div><div class="line"><span class="keyword">let</span> b=a.toString(<span class="number">2</span>);</div><div class="line"><span class="keyword">if</span>(a&lt;<span class="number">0</span>)&#123;</div><div class="line">  b=~b+<span class="number">1</span>;  <span class="comment">//取反加一就是取负值</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="算法问题分类"><a href="#算法问题分类" class="headerlink" title="算法问题分类"></a>算法问题分类</h3><h4 id="树"><a href="#树" class="headerlink" title="树"></a>树</h4><h5 id="广度优先遍历，深度优先遍历"><a href="#广度优先遍历，深度优先遍历" class="headerlink" title="广度优先遍历，深度优先遍历"></a>广度优先遍历，深度优先遍历</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> levelOrderTraversal = <span class="function"><span class="keyword">function</span>(<span class="params">node</span>) </span>&#123;</div><div class="line">  <span class="keyword">if</span>(!node) &#123;</div><div class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'Empty Tree'</span>)</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="keyword">var</span> que = []</div><div class="line">  que.push(node)</div><div class="line">  <span class="keyword">while</span>(que.length !== <span class="number">0</span>) &#123;</div><div class="line">    node = que.shift()</div><div class="line">    <span class="built_in">console</span>.log(node.value)</div><div class="line">    <span class="keyword">if</span>(node.left) que.push(node.left)</div><div class="line">    <span class="keyword">if</span>(node.right) que.push(node.right)</div><div class="line">  &#125;</div><div class="line">&#125;			<span class="comment">//广度利用队列</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> preOrderUnRecur = <span class="function"><span class="keyword">function</span>(<span class="params">node</span>) </span>&#123;</div><div class="line">  <span class="keyword">if</span>(!node) &#123;</div><div class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'Empty Tree'</span>)</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">var</span> stack = []</div><div class="line">  stack.push(node)</div><div class="line">  <span class="keyword">while</span>(stack.length !== <span class="number">0</span>) &#123;</div><div class="line">    node = stack.pop()</div><div class="line">    <span class="built_in">console</span>.log(node.value)    </div><div class="line">    <span class="keyword">if</span>(node.right) stack.push(node.right)</div><div class="line">    <span class="keyword">if</span>(node.left) stack.push(node.left)</div><div class="line">  &#125;</div><div class="line">&#125;				<span class="comment">//深度利用栈</span></div></pre></td></tr></table></figure>
+<h5 id="后序遍历"><a href="#后序遍历" class="headerlink" title="后序遍历"></a>后序遍历</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> postOrder = <span class="function"><span class="keyword">function</span> (<span class="params">node</span>) </span>&#123;  </div><div class="line"><span class="keyword">if</span>(node)&#123;  </div><div class="line">postOrder(node.left);  </div><div class="line">postOrder(node.right);  </div><div class="line"><span class="built_in">console</span>.log(node.value);  </div><div class="line">&#125;  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h4><p>  （2）链表反转；</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> pre=head;</div><div class="line"><span class="keyword">let</span> cur=head.next;</div><div class="line">pre.next=<span class="literal">null</span>;</div><div class="line"><span class="keyword">while</span>(cur.next!==<span class="literal">null</span>)&#123;</div><div class="line">  <span class="keyword">let</span> temp=cur.next;</div><div class="line">  cur.next=pre;</div><div class="line">  pre=cur;</div><div class="line">  cur=temp;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>  （3）链表排序；</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">sort</span>(<span class="params"></span>)</span>&#123;</div><div class="line"><span class="keyword">let</span> i=head;</div><div class="line"><span class="keyword">let</span> j=head.next;</div><div class="line"><span class="keyword">let</span> base=i.val;</div><div class="line"><span class="keyword">while</span>(j!==<span class="literal">null</span>)&#123;</div><div class="line">  <span class="keyword">if</span>(j.val&lt;base)&#123;</div><div class="line">    i=i.next;</div><div class="line">    swap(i,j);</div><div class="line">  &#125;</div><div class="line">  j=j.next;</div><div class="line">&#125;</div><div class="line">swap(i,head);</div><div class="line"> sort(head,i);</div><div class="line">  sort(i.next,j)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>  （4）合并两个有序链表；</p>
+<p>  （5）求出链表倒数第k个值；</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">let</span> fa=sl=head;</div><div class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;k<span class="number">-2</span>;i++)&#123;</div><div class="line">  fa=fa.next;</div><div class="line">&#125;</div><div class="line"><span class="keyword">while</span>(fa.next!=<span class="literal">null</span>)&#123;</div><div class="line">  sl=sl.next;</div><div class="line">  fa=fa.next;</div><div class="line">&#125;</div><div class="line"><span class="keyword">return</span> sl.val;</div></pre></td></tr></table></figure>
+<p>  （6）判断链表是否有环，有环返回相遇节点；</p>
+<p>​        快慢针，能相遇就说明有</p>
+<p>  （7）在一个有环链表中找到环的入口；</p>
+<p>​        从快慢相遇点开始走，另一个从起始点开始走，就能走到</p>
+<p>​        推倒。设环长r，非环长l，相遇点距环口m.</p>
+<p>​        l+m+t1r=(l+m+t2r)/2</p>
+<p>​        l+m=(2*t1-t2)r=tr</p>
+<p>​        l=tr-m=(r-m)+(t-1)r        所以一开始从那里走的话一定会在交叉点相会</p>
+<p>  （8）删除当前给定节点node；</p>
+<p>​        node.next=temp;</p>
+<p>​        node.val=temp.val;</p>
+<p>​        node.next=temp.next;        </p>
+<p>  （9）找出链表的中间节点。快慢指针</p>
+<h4 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h4><h5 id="斐波纳切-注意尾部回调"><a href="#斐波纳切-注意尾部回调" class="headerlink" title="斐波纳切 注意尾部回调"></a>斐波纳切 注意尾部回调</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fib</span>(<span class="params">x,m=<span class="number">1</span>,n=<span class="number">0</span></span>)</span>&#123;</div><div class="line">	<span class="keyword">if</span>(x&gt;<span class="number">2</span>)&#123;</div><div class="line">  	x--;</div><div class="line">  	<span class="keyword">return</span> fib(x,m+n,m);</div><div class="line">  &#125;<span class="keyword">else</span>&#123;</div><div class="line">  <span class="keyword">return</span> m+n;</div><div class="line">  &#125;</div><div class="line">  </div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="数组去重"><a href="#数组去重" class="headerlink" title="数组去重"></a>数组去重</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> array = [<span class="number">1</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>];</div><div class="line">      <span class="function"><span class="keyword">function</span> <span class="title">filt</span>(<span class="params">array</span>)</span>&#123;</div><div class="line">        <span class="keyword">var</span> result=[];</div><div class="line">        <span class="keyword">var</span> hash = &#123;&#125;;</div><div class="line">        array.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">item</span>)</span>&#123;</div><div class="line">          <span class="keyword">if</span>(!hash[item])&#123;</div><div class="line">            result.push(item);</div><div class="line">            hash[item]=<span class="literal">true</span>;</div><div class="line">          &#125;</div><div class="line">        &#125;)</div><div class="line">        <span class="built_in">console</span>.log(result);</div><div class="line">      &#125;</div><div class="line">filt();</div></pre></td></tr></table></figure>
+<h5 id="判断两个json是否相同"><a href="#判断两个json是否相同" class="headerlink" title="判断两个json是否相同"></a>判断两个json是否相同</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> x=&#123;<span class="attr">a</span>:<span class="number">1</span>,<span class="attr">b</span>:<span class="number">2</span>&#125;,y=&#123;<span class="attr">b</span>:<span class="number">2</span>,<span class="attr">a</span>:<span class="number">1</span>&#125;,z=&#123;<span class="attr">a</span>:<span class="number">2</span>,<span class="attr">b</span>:<span class="number">3</span>&#125;;</div><div class="line"><span class="comment">//我能想到的方法就是便利每个变量，然后对比</span></div><div class="line">deter(x,y)  <span class="comment">//true</span></div><div class="line">deter(x,z)  <span class="comment">//false</span></div></pre></td></tr></table></figure>
+<h3 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h3><h5 id="栈的实现"><a href="#栈的实现" class="headerlink" title="栈的实现"></a>栈的实现</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">stack</span>(<span class="params"></span>)</span>&#123;</div><div class="line">     <span class="keyword">this</span>.dataStore=[];</div><div class="line">     <span class="keyword">this</span>.top=<span class="number">0</span>;</div><div class="line">     <span class="keyword">this</span>.push=push;</div><div class="line">     <span class="keyword">this</span>.pop=pop;</div><div class="line">     <span class="keyword">this</span>.peek=peek;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">push</span>(<span class="params">element</span>)</span>&#123;</div><div class="line">     <span class="keyword">this</span>.dataStore[top++]=element;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">pop</span>(<span class="params">element</span>)</span>&#123;</div><div class="line">     <span class="keyword">return</span> <span class="keyword">this</span>.dataStore[--<span class="keyword">this</span>.top];</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">peek</span>(<span class="params"></span>)</span>&#123;</div><div class="line">     <span class="keyword">return</span> <span class="keyword">this</span>.dataStore[<span class="keyword">this</span>.top<span class="number">-1</span>];</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">length</span>(<span class="params"></span>)</span>&#123;</div><div class="line">     <span class="keyword">return</span> <span class="keyword">this</span>.top;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">clear</span>(<span class="params"></span>)</span>&#123;</div><div class="line">     <span class="keyword">this</span>.top=<span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="队列的实现"><a href="#队列的实现" class="headerlink" title="队列的实现"></a>队列的实现</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Queue</span>(<span class="params"></span>)</span>&#123;</div><div class="line">     <span class="keyword">this</span>.dataStore=[];</div><div class="line">     <span class="keyword">this</span>.enqueue=enqueue;</div><div class="line">     <span class="keyword">this</span>.dequeue=dequeue;</div><div class="line">     <span class="keyword">this</span>.front=front;</div><div class="line">     <span class="keyword">this</span>.back=back;</div><div class="line">     <span class="keyword">this</span>.toString=toString;</div><div class="line">     <span class="keyword">this</span>.empty=empty;</div><div class="line">   &#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">enqueue</span>(<span class="params">element</span>)</span>&#123;</div><div class="line">     <span class="keyword">this</span>.dataStore.push(element);</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">dequeue</span>(<span class="params">element</span>)</span>&#123;</div><div class="line">     <span class="keyword">this</span>.dataStore.shift();</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">front</span>(<span class="params"></span>)</span>&#123;</div><div class="line">     <span class="keyword">return</span> <span class="keyword">this</span>.dataStore[<span class="number">0</span>];</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">back</span>(<span class="params"></span>)</span>&#123;</div><div class="line">     <span class="keyword">return</span> <span class="keyword">this</span>.dataStore[<span class="keyword">this</span>.dataStore.length<span class="number">-1</span>];</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">toString</span>(<span class="params"></span>)</span>&#123;</div><div class="line">     <span class="keyword">var</span> resstr=<span class="string">''</span>;</div><div class="line">     <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="keyword">this</span>.dataStore.length;i++)&#123;</div><div class="line">       resstr+=<span class="keyword">this</span>.dataStore[i]+<span class="string">'/n'</span>;</div><div class="line">     &#125;</div><div class="line">     <span class="keyword">return</span> resstr;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">empty</span>(<span class="params"></span>)</span>&#123;</div><div class="line">     <span class="keyword">return</span> <span class="keyword">this</span>.dataStore.length==<span class="number">0</span>?<span class="literal">true</span>:<span class="literal">false</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="链表的实现"><a href="#链表的实现" class="headerlink" title="链表的实现"></a>链表的实现</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Node</span>(<span class="params">element</span>)</span>&#123;</div><div class="line">     <span class="keyword">this</span>.element=element;</div><div class="line">     <span class="keyword">this</span>.next=<span class="literal">null</span>;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">llist</span>(<span class="params"></span>)</span>&#123;</div><div class="line">     <span class="keyword">this</span>.head=<span class="keyword">new</span> Node(<span class="string">'head'</span>);</div><div class="line">     <span class="keyword">this</span>.find=find;</div><div class="line">     <span class="keyword">this</span>.insert=insert;</div><div class="line">     <span class="keyword">this</span>.remove=remove;</div><div class="line">     <span class="keyword">this</span>.display=display;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">find</span>(<span class="params">item</span>)</span>&#123;</div><div class="line">     <span class="keyword">var</span> curNode=<span class="keyword">this</span>.head;</div><div class="line">     <span class="keyword">while</span>(curNode!=item)&#123;</div><div class="line">       curNode=curNode.next;</div><div class="line">     &#125;</div><div class="line">     <span class="keyword">return</span> curNode;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">insert</span>(<span class="params">newELement,item</span>)</span>&#123;</div><div class="line">     <span class="keyword">var</span> newNode=<span class="keyword">new</span> Node(newElment);</div><div class="line">     <span class="keyword">var</span> current=<span class="keyword">this</span>.find(item);</div><div class="line">     newNode.next=current.next;</div><div class="line">     current.next=newNode;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">display</span>(<span class="params"></span>)</span>&#123;</div><div class="line">     <span class="keyword">var</span> curNode=<span class="keyword">this</span>.head;</div><div class="line">     <span class="keyword">while</span>(!(curNode.next==<span class="literal">null</span>))&#123;</div><div class="line">       print(curNode.next.element);</div><div class="line">       curNode=curNode.next;</div><div class="line">     &#125;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">findprevious</span>(<span class="params">item</span>)</span>&#123;</div><div class="line">	<span class="keyword">var</span> curNode=<span class="keyword">this</span>.head;</div><div class="line">     	<span class="keyword">while</span>(!(curNode.next==<span class="literal">null</span>)&amp;&amp;(curNode.next.element!=item))&#123;</div><div class="line">         curNode=curNode.next;</div><div class="line">     	&#125;</div><div class="line">     	<span class="keyword">return</span> curNode;</div><div class="line">   &#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">remove</span>(<span class="params">item</span>)</span>&#123;</div><div class="line">     <span class="keyword">var</span> previous=findprevious(item);</div><div class="line">     <span class="keyword">if</span>(!(previous.next.next==<span class="literal">null</span>))&#123;</div><div class="line">       previous.next=previous.next.next;</div><div class="line">     &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//双向链表</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Node</span>(<span class="params">element</span>)</span>&#123;</div><div class="line">     <span class="keyword">this</span>.element=element;</div><div class="line">     <span class="keyword">this</span>.next=<span class="literal">null</span>;</div><div class="line">     <span class="keyword">this</span>.previous=<span class="literal">null</span>;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">LList</span>(<span class="params"></span>)</span>&#123;</div><div class="line">     <span class="keyword">this</span>.head=<span class="keyword">new</span> Node(<span class="string">'head'</span>);</div><div class="line">     <span class="keyword">this</span>.find=find;</div><div class="line">     <span class="keyword">this</span>.insert=insert;</div><div class="line">     <span class="keyword">this</span>.display=display;</div><div class="line">     <span class="keyword">this</span>.remove=remove;</div><div class="line">     <span class="keyword">this</span>.findlast=findlast;</div><div class="line">     <span class="keyword">this</span>.dispReverse=dispReverse;</div><div class="line">&#125;</div><div class="line">funciton dispReverse()&#123;</div><div class="line">     <span class="keyword">var</span> curNode=<span class="keyword">this</span>.head;</div><div class="line">     curNode=<span class="keyword">this</span>.findLast();</div><div class="line">     <span class="keyword">while</span>(!(curNode==<span class="literal">null</span>))&#123;</div><div class="line">       print(curNode.element);</div><div class="line">       curNode=curNode.previous;</div><div class="line">     &#125;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">findLast</span>(<span class="params"></span>)</span>&#123;</div><div class="line">     <span class="keyword">var</span> curNode=<span class="keyword">this</span>.head;</div><div class="line">     <span class="keyword">while</span>(!(curNode.next==<span class="literal">null</span>))&#123;</div><div class="line">       curNode=curNode.next;</div><div class="line">     &#125;</div><div class="line">     <span class="keyword">return</span> curNode;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="深度优先和广度优先的遍历"><a href="#深度优先和广度优先的遍历" class="headerlink" title="深度优先和广度优先的遍历"></a>深度优先和广度优先的遍历</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">wideTraversal</span>(<span class="params">selectNode</span>) </span>&#123;  </div><div class="line">    <span class="keyword">var</span> nodes = [];  </div><div class="line">    <span class="keyword">if</span> (selectNode != <span class="literal">null</span>) &#123;  </div><div class="line">        <span class="keyword">var</span> queue = [];  </div><div class="line">        queue.unshift(selectNode);  </div><div class="line">        <span class="keyword">while</span> (queue.length != <span class="number">0</span>) &#123;  </div><div class="line">            <span class="keyword">var</span> item = queue.shift();  </div><div class="line">            nodes.push(item);  </div><div class="line">            <span class="keyword">var</span> children = item.children;  </div><div class="line">            <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; children.length; i++)  </div><div class="line">                queue.push(children[i]);  </div><div class="line">        &#125;  </div><div class="line">    &#125;  </div><div class="line">    <span class="keyword">return</span> nodes;   </div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">var</span> preOrder = <span class="function"><span class="keyword">function</span> (<span class="params">node</span>) </span>&#123;</div><div class="line">  <span class="keyword">if</span> (node) &#123;</div><div class="line">    <span class="built_in">console</span>.log(node.value);</div><div class="line">    preOrder(node.left);</div><div class="line">    preOrder(node.right);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> inOrder = <span class="function"><span class="keyword">function</span> (<span class="params">node</span>) </span>&#123;</div><div class="line">  <span class="keyword">if</span>(node)&#123;</div><div class="line">    inOrder(node.left);</div><div class="line">    <span class="built_in">console</span>.log(node.value);</div><div class="line">    inOrder(node.right);</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> postOrder = <span class="function"><span class="keyword">function</span> (<span class="params">node</span>) </span>&#123;</div><div class="line">  <span class="keyword">if</span> (node) &#123;</div><div class="line">    postOrder(node.left);</div><div class="line">    postOrder(node.right);</div><div class="line">    <span class="built_in">console</span>.log(node.value);</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/hexo-centmaster/tags/interview/" rel="tag"># interview</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/hexo-centmaster/2017/09/13/FE-sum/" rel="next" title="FE-sum">
+                <i class="fa fa-chevron-left"></i> FE-sum
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/hexo-centmaster/2017/09/13/nk-interview/" rel="prev" title="nk-interview">
+                nk-interview <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          
+            <p class="site-author-name" itemprop="name">centmaster</p>
+            <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+            
+              <a href="/hexo-centmaster/archives/">
+            
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">Artikel</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">Tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#算法与数据结构"><span class="nav-number">1.</span> <span class="nav-text">算法与数据结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基础知识"><span class="nav-number">1.1.</span> <span class="nav-text">基础知识</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#二进制"><span class="nav-number">1.1.0.1.</span> <span class="nav-text">二进制</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#算法问题分类"><span class="nav-number">1.2.</span> <span class="nav-text">算法问题分类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#树"><span class="nav-number">1.2.1.</span> <span class="nav-text">树</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#广度优先遍历，深度优先遍历"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">广度优先遍历，深度优先遍历</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#后序遍历"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">后序遍历</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#链表"><span class="nav-number">1.2.2.</span> <span class="nav-text">链表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#其他"><span class="nav-number">1.2.3.</span> <span class="nav-text">其他</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#斐波纳切-注意尾部回调"><span class="nav-number">1.2.3.1.</span> <span class="nav-text">斐波纳切 注意尾部回调</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#数组去重"><span class="nav-number">1.2.3.2.</span> <span class="nav-text">数组去重</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#判断两个json是否相同"><span class="nav-number">1.2.3.3.</span> <span class="nav-text">判断两个json是否相同</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据结构"><span class="nav-number">1.3.</span> <span class="nav-text">数据结构</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#栈的实现"><span class="nav-number">1.3.0.1.</span> <span class="nav-text">栈的实现</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#队列的实现"><span class="nav-number">1.3.0.2.</span> <span class="nav-text">队列的实现</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#链表的实现"><span class="nav-number">1.3.0.3.</span> <span class="nav-text">链表的实现</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#深度优先和广度优先的遍历"><span class="nav-number">1.3.0.4.</span> <span class="nav-text">深度优先和广度优先的遍历</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">centmaster</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a></div>
+
+  <span class="post-meta-divider">|</span>
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.2</div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/hexo-centmaster/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/hexo-centmaster/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/hexo-centmaster/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/hexo-centmaster/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/hexo-centmaster/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/hexo-centmaster/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/hexo-centmaster/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/hexo-centmaster/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  <script type="text/javascript" src="/hexo-centmaster/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/hexo-centmaster/js/src/post-details.js?v=5.1.2"></script>
+
+
+  
+  <script type="text/javascript" src="/hexo-centmaster/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/hexo-centmaster/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/hexo-centmaster/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

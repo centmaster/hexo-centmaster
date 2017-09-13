@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/hexo-centmaster/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/hexo-centmaster/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/hexo-centmaster/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="interview," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/hexo-centmaster/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="不成体系的各种知识点看到不会的就记录下来低版本浏览器不支持HTML5标签怎么解决 123&amp;lt;!--[if lt IE 9]&amp;gt;  &amp;lt;script src=&quot;http://cdn.staticfile.org/html5shiv/r29/html5.js&quot;&amp;gt;&amp;lt;/script&amp;gt;&amp;lt;![endif]--&amp;gt; CSS W3C盒子和IE盒子的如何互相转化box-siz">
+<meta name="keywords" content="interview">
+<meta property="og:type" content="article">
+<meta property="og:title" content="nk-interview">
+<meta property="og:url" content="https://github.com/centmaster/hexo-centmaster/2017/09/13/nk-interview/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="不成体系的各种知识点看到不会的就记录下来低版本浏览器不支持HTML5标签怎么解决 123&amp;lt;!--[if lt IE 9]&amp;gt;  &amp;lt;script src=&quot;http://cdn.staticfile.org/html5shiv/r29/html5.js&quot;&amp;gt;&amp;lt;/script&amp;gt;&amp;lt;![endif]--&amp;gt; CSS W3C盒子和IE盒子的如何互相转化box-siz">
+<meta property="og:image" content="https://github.com/Users/centmaster/Documents/code/interview/FE-Learning/01-html知识点/images/browser-3.png">
+<meta property="og:updated_time" content="2017-09-13T13:45:48.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="nk-interview">
+<meta name="twitter:description" content="不成体系的各种知识点看到不会的就记录下来低版本浏览器不支持HTML5标签怎么解决 123&amp;lt;!--[if lt IE 9]&amp;gt;  &amp;lt;script src=&quot;http://cdn.staticfile.org/html5shiv/r29/html5.js&quot;&amp;gt;&amp;lt;/script&amp;gt;&amp;lt;![endif]--&amp;gt; CSS W3C盒子和IE盒子的如何互相转化box-siz">
+<meta name="twitter:image" content="https://github.com/Users/centmaster/Documents/code/interview/FE-Learning/01-html知识点/images/browser-3.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/hexo-centmaster/',
+    scheme: 'Muse',
+    version: '5.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://github.com/centmaster/hexo-centmaster/2017/09/13/nk-interview/"/>
+
+
+
+
+
+  <title>nk-interview | Hexo</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/hexo-centmaster/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hexo</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/hexo-centmaster/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/hexo-centmaster/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archiv
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/centmaster/hexo-centmaster/hexo-centmaster/2017/09/13/nk-interview/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="centmaster">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/hexo-centmaster/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">nk-interview</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-13T21:42:47+08:00">
+                2017-09-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="不成体系的各种知识点看到不会的就记录下来"><a href="#不成体系的各种知识点看到不会的就记录下来" class="headerlink" title="不成体系的各种知识点看到不会的就记录下来"></a>不成体系的各种知识点看到不会的就记录下来</h2><p>低版本浏览器不支持HTML5标签怎么解决</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!--[if lt IE 9]&gt;</span></div><div class="line"><span class="comment">  &lt;script src="http://cdn.staticfile.org/html5shiv/r29/html5.js"&gt;&lt;/script&gt;</span></div><div class="line"><span class="comment">&lt;![endif]--&gt;</span></div></pre></td></tr></table></figure>
+<h5 id="CSS-W3C盒子和IE盒子的如何互相转化"><a href="#CSS-W3C盒子和IE盒子的如何互相转化" class="headerlink" title="CSS W3C盒子和IE盒子的如何互相转化"></a>CSS W3C盒子和IE盒子的如何互相转化</h5><p>box-sizing属性<code>box-sizing: content-box|border-box|initial|inherit;</code></p>
+<p>inherit表明从父元素继承；initial表明默认值；<br>Content-box表示width和height属性只包含内容区的大小；<br>border-box表示width和height属性是<code>border + padding + content</code>的大小</p>
+<h5 id="Array对象自带的排序函数底层是怎么实现的？"><a href="#Array对象自带的排序函数底层是怎么实现的？" class="headerlink" title="Array对象自带的排序函数底层是怎么实现的？"></a>Array对象自带的排序函数底层是怎么实现的？</h5><p>查阅资料发现，V8 引擎 sort 函数只给出了两种排序 InsertionSort 和 QuickSort，数组长度小于等于 22 的用插入排序 InsertionSort，比22大的数组则使用快速排序 QuickSort。</p>
+<p>插入排序：遍历序列，每次i都从头开始比放到合适位置</p>
+<h5 id="邮箱-正则https-segmentfault-com-q-1010000006661187"><a href="#邮箱-正则https-segmentfault-com-q-1010000006661187" class="headerlink" title="邮箱 正则https://segmentfault.com/q/1010000006661187"></a>邮箱 正则<a href="https://segmentfault.com/q/1010000006661187" target="_blank" rel="external">https://segmentfault.com/q/1010000006661187</a></h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+\.)&#123;1,63&#125;[a-z0-9]+$/</div></pre></td></tr></table></figure>
+<h5 id="面向对象-面向过程"><a href="#面向对象-面向过程" class="headerlink" title="面向对象 面向过程"></a>面向对象 面向过程</h5><p>它的设计上的特点是：继承、封装、多态</p>
+<p>面向对象设计的核心思想是模块化，对问题进行抽象。</p>
+<p>ps：如何实现多态？重写父类的方法</p>
+<h5 id="JS实现异步的方法"><a href="#JS实现异步的方法" class="headerlink" title="JS实现异步的方法"></a>JS实现异步的方法</h5><p>1.回调函数</p>
+<p>2.Promise</p>
+<p>3.事件监听，监听到再触发下一个任务</p>
+<p>4.发布订阅模式</p>
+<p>publish（‘done’） subscribe（‘done’，）</p>
+<h5 id="移动端前端配适方案"><a href="#移动端前端配适方案" class="headerlink" title="移动端前端配适方案"></a>移动端前端配适方案</h5><p>1.Media Query</p>
+<p>2.Flex</p>
+<p>它的<code>viewport</code>是固定的：<code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no&quot;&gt;</code></p>
+<p>3.rem</p>
+<h5 id="懒加载的性能优化"><a href="#懒加载的性能优化" class="headerlink" title="懒加载的性能优化"></a>懒加载的性能优化</h5><p>全部一次性插入进去设置隐藏的效率远比动态插入删除效率高的多</p>
+<h5 id="cookie除了key与value还有哪些参数"><a href="#cookie除了key与value还有哪些参数" class="headerlink" title="cookie除了key与value还有哪些参数"></a>cookie除了key与value还有哪些参数</h5><p>path domain Expire size</p>
+<h5 id="typeof"><a href="#typeof" class="headerlink" title="typeof"></a>typeof</h5><table>
+<thead>
+<tr>
+<th>Undefined</th>
+<th><code>&quot;undefined&quot;</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Null</td>
+<td><code>&quot;object&quot;</code>(see below)</td>
+</tr>
+<tr>
+<td>Boolean</td>
+<td><code>&quot;boolean&quot;</code></td>
+</tr>
+<tr>
+<td>Number</td>
+<td><code>&quot;number&quot;</code></td>
+</tr>
+<tr>
+<td>String</td>
+<td><code>&quot;string&quot;</code></td>
+</tr>
+<tr>
+<td>Symbol (new in ECMAScript 2015)</td>
+<td><code>&quot;symbol&quot;</code></td>
+</tr>
+<tr>
+<td>Host object (provided by the JS environment)</td>
+<td><em>Implementation-dependent</em></td>
+</tr>
+<tr>
+<td>Function object (implements [[Call]] in ECMA-262 terms)</td>
+<td><code>&quot;function&quot;</code></td>
+</tr>
+<tr>
+<td>Any other object</td>
+<td><code>&quot;object&quot;</code></td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">g</span>(<span class="params"></span>)</span>&#123;</div><div class="line"><span class="keyword">return</span> <span class="number">23</span>;</div><div class="line">&#125; </div><div class="line"><span class="keyword">typeof</span> g()<span class="comment">//number</span></div></pre></td></tr></table></figure>
+<h5 id="常用算法排序"><a href="#常用算法排序" class="headerlink" title="常用算法排序"></a>常用算法排序</h5><table>
+<thead>
+<tr>
+<th>排序法</th>
+<th>最差时间分析</th>
+<th>平均时间复杂度</th>
+<th>稳定度</th>
+<th>空间复杂度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>冒泡排序</td>
+<td>O(n2)</td>
+<td>O(n2)</td>
+<td>稳定</td>
+<td>O(1)</td>
+</tr>
+<tr>
+<td>快速排序</td>
+<td>O(n2)</td>
+<td>O(n*log2n)</td>
+<td>不稳定</td>
+<td>O(log2n)~O(n)</td>
+</tr>
+<tr>
+<td>选择排序</td>
+<td>O(n2)</td>
+<td>O(n2)</td>
+<td>稳定</td>
+<td>O(1)</td>
+</tr>
+<tr>
+<td>二叉树排序</td>
+<td>O(n2)</td>
+<td>O(n*log2n)</td>
+<td>不一顶</td>
+<td>O(n)</td>
+</tr>
+<tr>
+<td>插入排序</td>
+<td>O(n2)</td>
+<td>O(n2)</td>
+<td>稳定</td>
+<td>O(1)</td>
+</tr>
+<tr>
+<td>堆排序</td>
+<td>O(n*log2n)</td>
+<td>O(n*log2n)</td>
+<td>不稳定</td>
+<td>O(1)</td>
+</tr>
+<tr>
+<td>希尔排序</td>
+<td>O</td>
+<td>O</td>
+<td>不稳定</td>
+<td>O(1)</td>
+</tr>
+</tbody>
+</table>
+<h5 id="事件绑定"><a href="#事件绑定" class="headerlink" title="事件绑定"></a>事件绑定</h5><p>addEventListener是w3c标准写法，共有三个参数，第一个为事件类型，但是不加on，第二个参数是一个函数，用于写逻辑代码进行事件操作，第三个参数为boolean型值，true或false,true表示事件捕获，false表示事件冒泡，默认为false</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">handler</span>(<span class="params">e</span>)</span>&#123;</div><div class="line">    <span class="comment">//操作</span></div><div class="line">    <span class="built_in">console</span>.log(e)</div><div class="line">&#125;</div><div class="line">ele.addEventListener(<span class="string">'click'</span>, handler);<span class="comment">//绑定</span></div><div class="line">ele.removeEventListener(<span class="string">'click'</span>, handler);<span class="comment">//解绑</span></div></pre></td></tr></table></figure>
+<h5 id="ES6和ES5继承的区别"><a href="#ES6和ES5继承的区别" class="headerlink" title="ES6和ES5继承的区别"></a>ES6和ES5继承的区别</h5><p>ES5的继承实质上是先创建子类的实例对象，然后再将父类的方法添加到<strong>this</strong>上（Parent.apply(this)）.</p>
+<p>ES6的继承机制完全不同，实质上是先创建父类的实例对象this（所以必须先调用父类的super()方法），然后再用子类的构造函数修改this。</p>
+<h5 id="cnd-dns"><a href="#cnd-dns" class="headerlink" title="cnd dns"></a>cnd dns</h5><p>CDN的全称是Content Delivery Network，即<a href="https://baike.baidu.com/item/%E5%86%85%E5%AE%B9%E5%88%86%E5%8F%91%E7%BD%91%E7%BB%9C" target="_blank" rel="external">内容分发网络</a>。其基本思路是尽可能避开互联网上有可能影响数据传输速度和稳定性的瓶颈和环节，使内容传输的更快、更稳定。通过在网络各处放置<a href="https://baike.baidu.com/item/%E8%8A%82%E7%82%B9%E6%9C%8D%E5%8A%A1%E5%99%A8" target="_blank" rel="external">节点服务器</a>所构成的在现有的互联网基础之上的一层智能<a href="https://baike.baidu.com/item/%E8%99%9A%E6%8B%9F%E7%BD%91%E7%BB%9C" target="_blank" rel="external">虚拟网络</a>，CDN系统能够实时地根据<a href="https://baike.baidu.com/item/%E7%BD%91%E7%BB%9C%E6%B5%81%E9%87%8F" target="_blank" rel="external">网络流量</a>和各节点的连接、负载状况以及到用户的距离和响应时间等综合信息将用户的请求重新导向离用户最近的服务节点上。其目的是使用户可就近取得所需内容，解决 Internet网络拥挤的状况，提高用户访问网站的响应速度。</p>
+<p>DNS（Domain Name System，域名系统），因特网上作为域名和<a href="https://baike.baidu.com/item/IP%E5%9C%B0%E5%9D%80" target="_blank" rel="external">IP地址</a>相互映射的一个<a href="https://baike.baidu.com/item/%E5%88%86%E5%B8%83%E5%BC%8F%E6%95%B0%E6%8D%AE%E5%BA%93" target="_blank" rel="external">分布式数据库</a>，能够使用户更方便的访问<a href="https://baike.baidu.com/item/%E4%BA%92%E8%81%94%E7%BD%91" target="_blank" rel="external">互联网</a>，而不用去记住能够被机器直接读取的IP数串。通过<a href="https://baike.baidu.com/item/%E4%B8%BB%E6%9C%BA" target="_blank" rel="external">主机</a>名，最终得到该主机名对应的IP地址的过程叫做域名解析（或主机名解析）。DNS协议运行在<a href="https://baike.baidu.com/item/UDP" target="_blank" rel="external">UDP</a>协议之上，使用端口号53。</p>
+<h5 id="文档流"><a href="#文档流" class="headerlink" title="文档流"></a>文档流</h5><p><code>absolute</code>：相对于非static的最近祖先</p>
+<h5 id="Web优化策略"><a href="#Web优化策略" class="headerlink" title="Web优化策略"></a>Web优化策略</h5><ol>
+<li>请求数量：合并脚本和样式表, iconfont，拆分初始化负载（一开始只加载必要脚本），划分主域（增加DNS查询代价，但是增加了并发链接数）</li>
+<li>请求带宽：开启 GZip，精简 JavaScript，移除重复脚本，图像优化</li>
+<li>利用缓存：使用 CDN，使用外部 JavaScript 和 CSS，减少 DNS 查找</li>
+<li>页面结构：将样式表(影响样式的内容)放在顶部，将脚本放在底部，尽早刷新文档的输出</li>
+</ol>
+<h5 id="rem和em的区别"><a href="#rem和em的区别" class="headerlink" title="rem和em的区别"></a>rem和em的区别</h5><p>都是相对font-size大小，但是rem是根据root的em，em是根据父级</p>
+<h5 id="发现一个神奇的东西"><a href="#发现一个神奇的东西" class="headerlink" title="发现一个神奇的东西"></a>发现一个神奇的东西</h5><p>按说substr——》对应splice     substring———》slice</p>
+<p>但只有splice会真实的改变原来的数据，其他三个都不能</p>
+<h5 id="css百分比相对于谁"><a href="#css百分比相对于谁" class="headerlink" title="css百分比相对于谁"></a>css百分比相对于谁</h5><p>相对于父元素宽度的：<br>[max/min-]width、left、right、padding、margin 等；</p>
+<p>相对于父元素高度的：<br>[max/min-]height、top、bottom 等；</p>
+<p>相对于继承字号的：<br>font-size 等；</p>
+<p>相对于自身字号的：<br>line-height 等；</p>
+<p>相对于自身宽高的：<br>border-radius、background-size、transform: translate()、transform-origin、zoom、clip-path 等；</p>
+<h5 id="js严格模式"><a href="#js严格模式" class="headerlink" title="js严格模式"></a>js严格模式</h5><p>如果两个js用了不同模式，怎么放在一起？用IIFE将两者隔离开来</p>
+<h6 id="语法限制"><a href="#语法限制" class="headerlink" title="语法限制"></a>语法限制</h6><p>1.不允许使用未声明变量，当然也不许删除变量</p>
+<p>2.对象。对象属性改动限制</p>
+<p>3.函数。不允许名字相同的参数，arguments与参数独立。</p>
+<p>4.eval方法只在其操作的eval内部</p>
+<p>5.this在严格模式下始终指向指定的值，包括null和undefined。</p>
+<p>6.不允许使用with</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">'use strict'</span></div><div class="line"><span class="built_in">window</span>.color=<span class="string">"red"</span>; <span class="comment">//node环境中为global.color = "red"; </span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">displayColor</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.color);<span class="comment">//严格模式下报错</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h5 id="遍历方法的区别"><a href="#遍历方法的区别" class="headerlink" title="遍历方法的区别"></a>遍历方法的区别</h5><p>map():返回一个新的Array，每个元素为调用func的结果</p>
+<p>filter():返回一个符合func条件的元素数组</p>
+<p>some():返回一个boolean，判断是否有元素是否符合func条件</p>
+<p>every():返回一个boolean，判断每个元素是否符合func条件</p>
+<p>forEach():没有返回值，只是针对每个元素调用func</p>
+<h5 id="原生css实现三角形"><a href="#原生css实现三角形" class="headerlink" title="原生css实现三角形"></a>原生css实现三角形</h5><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">width</span>: 0;</div><div class="line"><span class="selector-tag">height</span>: 0;</div><div class="line"><span class="selector-tag">border-left</span>: 50<span class="selector-tag">px</span> <span class="selector-tag">solid</span> <span class="selector-tag">transparent</span>;</div><div class="line"><span class="selector-tag">border-right</span>: 50<span class="selector-tag">px</span> <span class="selector-tag">solid</span> <span class="selector-tag">transparent</span>;</div><div class="line"><span class="selector-tag">border-bottom</span>: 100<span class="selector-tag">px</span> <span class="selector-tag">solid</span> <span class="selector-tag">red</span>;</div></pre></td></tr></table></figure>
+<h5 id="https和http以及http2"><a href="#https和http以及http2" class="headerlink" title="https和http以及http2"></a>https和http以及http2</h5><p><a href="http://www.alloyteam.com/2016/07/httphttp2-0spdyhttps-reading-this-is-enough/" target="_blank" rel="external">http://www.alloyteam.com/2016/07/httphttp2-0spdyhttps-reading-this-is-enough/</a></p>
+<p>http1.0——&gt;http1.1——&gt;https——&gt;SPDY——&gt;http2.0</p>
+<h6 id="影响http的主要因素"><a href="#影响http的主要因素" class="headerlink" title="影响http的主要因素"></a>影响http的主要因素</h6><p>带宽和延时。带宽现在不是大问题了，主要是延时。产生延时的3个因素</p>
+<p>1.浏览器阻塞。  因为浏览器限制最大连接数</p>
+<p>2.DNS查询</p>
+<p>3.建立连接。三次握手。慢启动—拥塞避免。   一开始从很小开始试网络情况，然后动态调整</p>
+<h6 id="1-0和1-1的区别"><a href="#1-0和1-1的区别" class="headerlink" title="1.0和1.1的区别"></a>1.0和1.1的区别</h6><p>1.缓存处理。引入了更多的缓存控制策略例如Entity tag，If-Unmodified-Since, If-Match, If-None-Match等更多可供选择的缓存头来控制缓存策略。</p>
+<p>2.带宽优化。在请求头引入了range头域，它允许只请求资源的某个部分</p>
+<p>3.增加了更多的错误状态码。410（Gone）表示服务器上的某个资源被永久性的删除。</p>
+<p>4.Host头处理。在一台物理服务器上可以存在多个虚拟主机（Multi-homed Web Servers），并且它们共享一个IP地址</p>
+<p>5.长连接</p>
+<h6 id="为了保证安全性，https应运而生"><a href="#为了保证安全性，https应运而生" class="headerlink" title="为了保证安全性，https应运而生"></a>为了保证安全性，https应运而生</h6><p>在http和tcp中间多加了一个层，SSL／TLS</p>
+<p>改造成https过程：安装CA证书，大量的密钥计算增加cpu计算成本</p>
+<p>证书的作用：实现加密传输，认证服务器身份。</p>
+<h6 id="使用SPDY—在http和ssl中间层"><a href="#使用SPDY—在http和ssl中间层" class="headerlink" title="使用SPDY—在http和ssl中间层"></a>使用SPDY—在http和ssl中间层</h6><p>1.多路复用</p>
+<p>2.请求优先级</p>
+<p>3.header压缩</p>
+<p>4.基于https</p>
+<h6 id="HTTP2-0新特性"><a href="#HTTP2-0新特性" class="headerlink" title="HTTP2.0新特性"></a>HTTP2.0新特性</h6><p>1.新的二进制格式</p>
+<p>2.多路复用</p>
+<p>按层从高到低。HTTP—SPDY—-SSL—-TCP</p>
+<h5 id="线程与进程"><a href="#线程与进程" class="headerlink" title="线程与进程"></a>线程与进程</h5><p>进程是cpu资源分配的最小单位，线程是cpu调度的最小单位。</p>
+<h5 id="async-await和generator的区别"><a href="#async-await和generator的区别" class="headerlink" title="async await和generator的区别"></a>async await和generator的区别</h5><p>实验证明，前者其实就是地狱回调的样子，等callback之后再往后走。就是同步的。</p>
+<p>async 是多个异步操作的promise对象，await相当于then</p>
+<p>使用await Promise.all([func1(),func2()])。就可以把同步变成异步了。</p>
+<p>区别：</p>
+<p>前者 await后边是跟promise不是自己会转   后者跟的还是generator</p>
+<h5 id="json和对象的区别"><a href="#json和对象的区别" class="headerlink" title="json和对象的区别"></a>json和对象的区别</h5><p>JSON是一种数据格式，可以用来交换、存储数据。从JSON可以方便的生成JS对象。</p>
+<p>其语法可以认为是JS Object的子集，主要区别在：</p>
+<ol>
+<li>JSON的键必须带引号，JS可以不带（解释器自动加）</li>
+<li>JSON没有函数、undefined、NaN等数据类型</li>
+</ol>
+<h5 id="object-create的实现原理"><a href="#object-create的实现原理" class="headerlink" title="object.create的实现原理"></a>object.create的实现原理</h5><p>我觉得，prototype引原来的，再用assign把属性方法都引过来，是不是就差不多？</p>
+<h5 id="前后端分离怎么做？意义？"><a href="#前后端分离怎么做？意义？" class="headerlink" title="前后端分离怎么做？意义？"></a>前后端分离怎么做？意义？</h5><p>解耦可以方便完全不同的前后端人员开发，理清逻辑。如果前端变化远比后端变化快，应该分离。</p>
+<h5 id="cookie-LocalStorage被重复覆盖"><a href="#cookie-LocalStorage被重复覆盖" class="headerlink" title="cookie,LocalStorage被重复覆盖"></a>cookie,LocalStorage被重复覆盖</h5><p>cookie.setMaxAge(Integer.MAX_VALUE); </p>
+<p>如果要删除某个Cookie，只需要新建一个同名的Cookie，并将maxAge设置为0，并添加到response中覆盖原来的Cookie。</p>
+<p>cookie配合sessionid，共同验证登录</p>
+<p>后者存的是字符串。都会被覆盖。</p>
+<h5 id="js-如何添加class-不覆盖原来的"><a href="#js-如何添加class-不覆盖原来的" class="headerlink" title="js 如何添加class 不覆盖原来的"></a>js 如何添加class 不覆盖原来的</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">element.className = &quot;redColor&quot;;//设置class</div><div class="line">element.className += &quot; yellowBack&quot;;//增加class</div></pre></td></tr></table></figure>
+<h5 id="一个何时会报undefined，何时会报referenceerror"><a href="#一个何时会报undefined，何时会报referenceerror" class="headerlink" title="一个何时会报undefined，何时会报referenceerror"></a>一个何时会报undefined，何时会报referenceerror</h5><p>当你var a，或者找一个对象里的某个属性，a=Object.create({});a.name的时候会报undefined。如果一个变量从未声明，则referenceerror。如果求一个简单变量查找属性，则typeerror</p>
+<h5 id="判断js对象是否存在的方法"><a href="#判断js对象是否存在的方法" class="headerlink" title="判断js对象是否存在的方法"></a>判断js对象是否存在的方法</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line"><span class="number">1</span>	<span class="keyword">if</span> (!myObj) &#123;</div><div class="line">　　　　<span class="keyword">var</span> myObj = &#123; &#125;;</div><div class="line">　　&#125;<span class="comment">//一定要有var，变量提升之后才不会报错，否则ReferenceError</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="number">2</span>　　<span class="keyword">if</span> (!<span class="built_in">window</span>.myObj) &#123;</div><div class="line">　　　　<span class="keyword">var</span> myObj = &#123; &#125;;</div><div class="line">　　&#125;</div><div class="line"></div><div class="line"><span class="number">3</span>	<span class="keyword">if</span> (!<span class="keyword">this</span>.myObj) &#123;</div><div class="line">　　　　<span class="keyword">this</span>.myObj = &#123; &#125;;</div><div class="line">　　&#125;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"><span class="number">4</span>	<span class="keyword">var</span> global = <span class="keyword">this</span>;</div><div class="line">　　<span class="keyword">if</span> (!global.myObj) &#123;</div><div class="line">　　　　global.myObj = &#123; &#125;;</div><div class="line">　　&#125;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"><span class="number">5</span>	　<span class="keyword">if</span> (<span class="keyword">typeof</span> myObj == <span class="string">"undefined"</span>) &#123;</div><div class="line">　　　　<span class="keyword">var</span> myObj = &#123; &#125;;</div><div class="line">　　&#125;</div><div class="line"></div><div class="line"><span class="number">6</span>	<span class="keyword">if</span> (myObj == <span class="literal">undefined</span>) &#123;</div><div class="line">　　　　<span class="keyword">var</span> myObj = &#123; &#125;;</div><div class="line">　　&#125;</div><div class="line"></div><div class="line"><span class="number">7</span>	<span class="keyword">if</span> (!<span class="keyword">this</span>.hasOwnProperty(<span class="string">'myObj'</span>)) &#123;</div><div class="line">　　　　<span class="keyword">this</span>.myObj = &#123; &#125;;</div><div class="line">　　&#125;</div><div class="line"></div><div class="line"><span class="number">8</span>	<span class="keyword">if</span> (!(<span class="string">'myObj'</span> <span class="keyword">in</span> <span class="built_in">window</span>)) &#123;</div><div class="line">　　　　<span class="built_in">window</span>.myObj = &#123; &#125;;</div><div class="line">　　&#125;</div><div class="line"></div><div class="line"><span class="number">9</span>	　<span class="keyword">if</span> (myObj === <span class="literal">undefined</span>) &#123;</div><div class="line">　　　　<span class="keyword">var</span> myObj = &#123; &#125;;</div><div class="line">　　&#125;</div></pre></td></tr></table></figure>
+<h5 id="函数优先"><a href="#函数优先" class="headerlink" title="函数优先"></a>函数优先</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">foo()   <span class="comment">//1</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> foo;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</div><div class="line"> <span class="built_in">console</span>.log(<span class="number">1</span>);</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> foo= <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="number">2</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>同时出现hoist的话，函数优先。</p>
+<h5 id="window-onload和-document-ready-的区别，浏览器加载转圈结束时哪个时间点？"><a href="#window-onload和-document-ready-的区别，浏览器加载转圈结束时哪个时间点？" class="headerlink" title="window.onload和$(document).ready()的区别，浏览器加载转圈结束时哪个时间点？"></a>window.onload和$(document).ready()的区别，浏览器加载转圈结束时哪个时间点？</h5><p>感觉是完全加载完才停止转圈圈</p>
+<h5 id="babel的使用规则"><a href="#babel的使用规则" class="headerlink" title="babel的使用规则"></a>babel的使用规则</h5><p><strong>配置</strong>：.babelrc 根据官方给的规则集配置文件</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="string">"presets"</span>: [</div><div class="line">    <span class="string">"es2015"</span>,</div><div class="line">    <span class="string">"react"</span>,</div><div class="line">    <span class="string">"stage-2"</span></div><div class="line">  ],</div><div class="line">  <span class="string">"plugins"</span>: []</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>工具</strong>:</p>
+<p>Babel-cli     用于命令行转码。</p>
+<p>Babel-node    它支持Node的REPL环境的所有功能，而且可以直接运行ES6代码。</p>
+<p>Babel-register    每当使用<code>require</code>加载<code>.js</code>、<code>.jsx</code>、<code>.es</code>和<code>.es6</code>后缀名的文件，就会先用Babel进行转码。</p>
+<p>Babel-core    如果某些代码需要调用Babel的API进行转码，就要使用<code>babel-core</code>模块</p>
+<p>Babel-polyfill        Babel默认只转换新的JavaScript句法（syntax），而不转换新的API，比如Iterator、Generator、Set、Maps、Proxy、Reflect、Symbol、Promise等全局对象，以及一些定义在全局对象上的方法（比如<code>Object.assign</code>）都不会转码。</p>
+<h5 id="js的内存泄露问题"><a href="#js的内存泄露问题" class="headerlink" title="js的内存泄露问题"></a>js的内存泄露问题</h5><p>垃圾回收机制：最常用的就是引用计数</p>
+<blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt; <span class="keyword">const</span> arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>];</div><div class="line">&gt; <span class="built_in">console</span>.log(<span class="string">'hello world'</span>);</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<p>上面代码中，数组<code>[1, 2, 3, 4]</code>是一个值，会占用内存。变量<code>arr</code>是仅有的对这个值的引用，因此引用次数为<code>1</code>。尽管后面的代码没有用到<code>arr</code>，它还是会持续占用内存。</p>
+<p><strong>ES6新出的Weakset和WeakMap</strong>：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> wm = <span class="keyword">new</span> <span class="built_in">WeakMap</span>();</div><div class="line"></div><div class="line"><span class="keyword">const</span> element = <span class="built_in">document</span>.getElementById(<span class="string">'example'</span>);</div><div class="line"></div><div class="line">wm.set(element, <span class="string">'some information'</span>);</div><div class="line">wm.get(element) <span class="comment">// "some information"</span></div></pre></td></tr></table></figure>
+<p>这样，DOM 节点对象的引用计数是<code>1</code>，而不是<code>2</code>。这时，一旦消除对该节点的引用，它占用的内存就会被垃圾回收机制释放。Weakmap 保存的这个键值对，也会自动消失。</p>
+<p><strong>常见的js内存泄露</strong>：</p>
+<p>1.意外的全局变量。当你没用var声明的时候，默认帮到window全局，就有了引用，会一直占用内存。还有this误指到全局的。可以用use strict 检测这种情况。</p>
+<p>2.并没有清除事件</p>
+<p>setInterval(clearInterval)，addEventListener(removeEventListener)</p>
+<p>3.IE6中dom对象引用了js对象，而dom对象在某个时刻被移除掉了，但js引擎不知道它被移除掉，还傻傻的保留着引用呢，就不会把js对象释放。</p>
+<h5 id="url和uli的区别"><a href="#url和uli的区别" class="headerlink" title="url和uli的区别"></a>url和uli的区别</h5><p>总的来说，<strong>locators are also identifiers</strong>, so every URL is also a URI, but there are URIs which are not URLs.</p>
+<h5 id="Dom渲染树渲染过程。-其实不同的浏览器引擎渲染过程稍有不同"><a href="#Dom渲染树渲染过程。-其实不同的浏览器引擎渲染过程稍有不同" class="headerlink" title="Dom渲染树渲染过程。 其实不同的浏览器引擎渲染过程稍有不同"></a>Dom渲染树渲染过程。 其实不同的浏览器引擎渲染过程稍有不同</h5><p><img src="/Users/centmaster/Documents/code/interview/FE-Learning/01-html知识点/images/browser-3.png" alt="browser-3"></p>
+<h5 id="HTML和XHTML的区别"><a href="#HTML和XHTML的区别" class="headerlink" title="HTML和XHTML的区别"></a>HTML和XHTML的区别</h5><p>1.所有的标记都必须要有一个相应的结束标记<br>2.所有标签的元素和属性的名字都必须使用小写<br>3.所有的XML标记都必须合理嵌套<br>4.所有的属性必须用引号””括起来<br>5.把所有&lt;和&amp;特殊符号用编码表示<br>6.给所有属性赋一个值<br>7.不要在注释内容中使“–”<br>8.图片必须有说明文字</p>
+<h5 id="怪异模式和标准模式的区别在哪（判断alert-window-top-document-compatMode-）"><a href="#怪异模式和标准模式的区别在哪（判断alert-window-top-document-compatMode-）" class="headerlink" title="怪异模式和标准模式的区别在哪（判断alert(window.top.document.compatMode) ）"></a>怪异模式和标准模式的区别在哪（判断alert(window.top.document.compatMode) ）</h5><ol>
+<li><p>在严格模式中 ：width是内容宽度 ，元素真正的宽度 = marginLeft + borderLeftWidth + paddingLeft +<br>width + paddinRight + borderRightWidth +  marginRight;<br>在怪癖模式中 ：width则是元素的实际宽度 ，内容宽度 = width - ( paddingLeft + paddingRight +<br>borderLeftWidth + borderRightWidth)</p>
+</li>
+<li><p>可以设置行内元素的高宽<br>在Standards模式下，给span等行内元素设置width和height都不会生效，而在quirks模式下，则会生效。</p>
+</li>
+<li><p>可设置百分比的高度<br>在standards模式下，一个元素的高度是由其包含的内容来决定的，如果父元素没有设置高度，<br>子元素设置一个百分比的高度是无效的。</p>
+</li>
+<li><p>用margin:0 auto设置水平居中在IE下会失效<br>使用margin:0 auto在standards模式下可以使元素水平居中，但在quirks模式下却会失效,<br>quirk模式下的解决办法，用text-align属性:<br>body{text-align:center};</p>
+<p>content{text-align:left}</p>
+</li>
+<li><p>quirk模式下设置图片的padding会失效</p>
+</li>
+<li><p>quirk模式下Table中的字体属性不能继承上层的设置</p>
+</li>
+<li><p>quirk模式下white-space:pre会失效</p>
+</li>
+</ol>
+<h5 id="除了ajax之外，你知道fetch嘛"><a href="#除了ajax之外，你知道fetch嘛" class="headerlink" title="除了ajax之外，你知道fetch嘛"></a>除了ajax之外，你知道fetch嘛</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">fetch(url).then(<span class="function"><span class="keyword">function</span>(<span class="params">response</span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> response.json();</div><div class="line">&#125;).then(<span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(data);</div><div class="line">&#125;).catch(<span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">"Oops, error"</span>);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h5 id="http相应头和请求头"><a href="#http相应头和请求头" class="headerlink" title="http相应头和请求头"></a>http相应头和请求头</h5><table>
+<thead>
+<tr>
+<th>相应头</th>
+<th>请求头</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Accept  用户代理可处理的媒体类型</td>
+<td>Accept-Ranges    是否接受字节范围请求</td>
+</tr>
+<tr>
+<td>Authorization   web认证信息</td>
+<td>Age    推算资源创建经过时间</td>
+</tr>
+<tr>
+<td>Host    请求资源所在的服务器</td>
+<td>Location    令客户端重定向至指定URI</td>
+</tr>
+<tr>
+<td>If-match    比较ETag</td>
+<td>WWW-Authenticate   服务器对客户端的认证信息</td>
+</tr>
+<tr>
+<td>User-Agent     Http客户端程序信息</td>
+<td>Server   http服务器的安装信息</td>
+</tr>
+<tr>
+<td>Max-Forwards     最大传输跳转数</td>
+<td>Allow    资源可支持的HTTP方法</td>
+</tr>
+<tr>
+<td>Range      实体的字节范围请求</td>
+<td>Content-Type   实体主体的媒体类型</td>
+</tr>
+<tr>
+<td>Referer     对请求中URI的原始获取方</td>
+<td>Expires     过期时间</td>
+</tr>
+<tr>
+<td></td>
+<td>Last-Modified    资源最后的修改日期</td>
+</tr>
+<tr>
+<td></td>
+<td>Content-Length     资源主体大小</td>
+</tr>
+<tr>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h5 id="Http2-优势-https-segmentfault-com-a-1190000005085636"><a href="#Http2-优势-https-segmentfault-com-a-1190000005085636" class="headerlink" title="Http2 优势(https://segmentfault.com/a/1190000005085636)"></a>Http2 优势(<a href="https://segmentfault.com/a/1190000005085636" target="_blank" rel="external">https://segmentfault.com/a/1190000005085636</a>)</h5><p>多路复用        压缩头部    请求优先级        二进制            服务器推送</p>
+<h5 id="两个页面之间通信"><a href="#两个页面之间通信" class="headerlink" title="两个页面之间通信"></a>两个页面之间通信</h5><h5 id="前端路由和后端路由的区别"><a href="#前端路由和后端路由的区别" class="headerlink" title="前端路由和后端路由的区别"></a>前端路由和后端路由的区别</h5><p>会造成假如两边都有一样的路径，就容易出bug</p>
+<h5 id="为什么要使用这种框架而不用原生api操作dom，性能并没有优化"><a href="#为什么要使用这种框架而不用原生api操作dom，性能并没有优化" class="headerlink" title="为什么要使用这种框架而不用原生api操作dom，性能并没有优化"></a>为什么要使用这种框架而不用原生api操作dom，性能并没有优化</h5><p>但是对于coding的人来说，牺牲一点计算量可以大大的减轻coding人的工作量</p>
+<h5 id="严格模式"><a href="#严格模式" class="headerlink" title="严格模式"></a>严格模式</h5><p>严格模式的一些主要优点包括：</p>
+<ul>
+<li>使调试更加容易。那些被忽略或默默失败了的代码错误，会产生错误或抛出异常，因此尽早提醒你代码中的问题，你才能更快地指引到它们的源代码。</li>
+<li>防止意外的全局变量。如果没有严格模式，将值分配给一个未声明的变量会自动创建该名称的全局变量。这是JavaScript中最常见的错误之一。在严格模式下，这样做的话会抛出错误。</li>
+<li>消除 <code>this</code> 强制。如果没有严格模式，引用null或未定义的值到 <code>this</code> 值会自动强制到全局变量。这可能会导致许多令人头痛的问题和让人恨不得拔自己头发的bug。在严格模式下，引用 null或未定义的 <code>this</code> 值会抛出错误。</li>
+<li>不允许重复的属性名称或参数值。当检测到对象（例如，<code>var object = {foo: &quot;bar&quot;, foo: &quot;baz&quot;};</code>）中重复命名的属性，或检测到函数中（例如，<code>function foo(val1, val2, val1){}</code>）重复命名的参数时，严格模式会抛出错误，因此捕捉几乎可以肯定是代码中的bug可以避免浪费大量的跟踪时间。</li>
+<li>使<code>eval()</code> 更安全。在严格模式和非严格模式下，<code>eval()</code> 的行为方式有所不同。最显而易见的是，在严格模式下，变量和声明在 <code>eval()</code> 语句内部的函数不会在包含范围内创建（它们会在非严格模式下的包含范围中被创建，这也是一个常见的问题源）。</li>
+<li>在 <code>delete</code>使用无效时抛出错误。<code>delete</code>操作符（用于从对象中删除属性）不能用在对象不可配置的属性上。当试图删除一个不可配置的属性时，非严格代码将默默地失败，而严格模式将在这样的情况下抛出异常。</li>
+</ul>
+<h5 id="NaN"><a href="#NaN" class="headerlink" title="NaN"></a>NaN</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="literal">NaN</span> === <span class="string">"number"</span>); <span class="comment">//true</span></div><div class="line"><span class="built_in">Object</span>.is(<span class="literal">NaN</span>,<span class="literal">NaN</span>)</div><div class="line"><span class="built_in">Array</span>.isNaN(<span class="literal">NaN</span>)</div></pre></td></tr></table></figure>
+<h5 id="isInteger实现"><a href="#isInteger实现" class="headerlink" title="isInteger实现"></a>isInteger实现</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">isInteger</span>(<span class="params">x</span>) </span>&#123; <span class="keyword">return</span> (x^<span class="number">0</span>) === x; &#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">isInteger</span>(<span class="params">x</span>) </span>&#123; <span class="keyword">return</span> <span class="built_in">Math</span>.round(x) === x; &#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">isInteger</span>(<span class="params">x</span>) </span>&#123; <span class="keyword">return</span> (<span class="keyword">typeof</span> x === <span class="string">'number'</span>) &amp;&amp; (x % <span class="number">1</span> === <span class="number">0</span>);</div></pre></td></tr></table></figure>
+<h5 id="实现函数，-实现功能"><a href="#实现函数，-实现功能" class="headerlink" title="实现函数， 实现功能"></a>实现函数， 实现功能</h5><p>写一个 <code>sum</code>方法，在使用下面任一语法调用时，都可以正常工作。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(sum(<span class="number">2</span>,<span class="number">3</span>));   <span class="comment">// Outputs 5</span></div><div class="line"><span class="built_in">console</span>.log(sum(<span class="number">2</span>)(<span class="number">3</span>));  <span class="comment">// Outputs 5</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">x</span>) </span>&#123;</div><div class="line">  <span class="keyword">if</span> (<span class="built_in">arguments</span>.length == <span class="number">2</span>) &#123;</div><div class="line">    <span class="keyword">return</span> <span class="built_in">arguments</span>[<span class="number">0</span>] + <span class="built_in">arguments</span>[<span class="number">1</span>];</div><div class="line">  &#125; <span class="keyword">else</span> &#123;</div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">y</span>) </span>&#123; <span class="keyword">return</span> x + y; &#125;;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">x, y</span>) </span>&#123;</div><div class="line">  <span class="keyword">if</span> (y !== <span class="literal">undefined</span>) &#123;</div><div class="line">    <span class="keyword">return</span> x + y;</div><div class="line">  &#125; <span class="keyword">else</span> &#123;</div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params">y</span>) </span>&#123; <span class="keyword">return</span> x + y; &#125;;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">在这种情况下，由于 b 和 c都是对象，因此它们都将被转换为&quot;[object Object]&quot;</div><div class="line">var a=&#123;&#125;,</div><div class="line">    b=&#123;key:&apos;b&apos;&#125;,</div><div class="line">    c=&#123;key:&apos;c&apos;&#125;;</div><div class="line"> </div><div class="line">a[b]=123;</div><div class="line">a[c]=456;</div><div class="line"> </div><div class="line">console.log(a[b]);</div></pre></td></tr></table></figure>
+<h5 id="单向绑定和双向绑定（http-www-jianshu-com-p-4ec74cb5b748）"><a href="#单向绑定和双向绑定（http-www-jianshu-com-p-4ec74cb5b748）" class="headerlink" title="单向绑定和双向绑定（http://www.jianshu.com/p/4ec74cb5b748）"></a>单向绑定和双向绑定（<a href="http://www.jianshu.com/p/4ec74cb5b748）" target="_blank" rel="external">http://www.jianshu.com/p/4ec74cb5b748）</a></h5><p>单向绑定非常简单，就是把Model绑定到View，当我们用JavaScript代码更新Model时，View就会自动更新</p>
+<p>单向数据绑定缺点：HTML代码一旦生成完以后，就没有办法再变了，如果有新的数据来了，那就必须把之前的HTML代码去掉，再重新把新的数据和模板一起整合后插入到文档流中。</p>
+<p>React可以算作单向数据中的一种。</p>
+<p>双向数据绑定最经常的应用场景是表单，这样当用户在前端页面完成输入后，不用任何操作，就可以拿到用户的数据存放到数据模型中了。</p>
+<p>数据模型（Module）和视图（View）之间的双向绑定。无论数据改变，或是用户操作，都能带来互相的变动，自动更新。适用于项目细节</p>
+<h5 id="实现双向数据绑定的做法"><a href="#实现双向数据绑定的做法" class="headerlink" title="实现双向数据绑定的做法"></a>实现双向数据绑定的做法</h5><p>1.发布／订阅</p>
+<p>2.<strong>脏检查（angular.js）</strong></p>
+<p>原理是设置了一些条件，当你触发了这些条件之后，它就执行一个检测来遍历所有的数据，对比你更改了地方，然后执行变化</p>
+<p><strong>3.ES7的Object.observe()</strong></p>
+<p>最完美的方法，但是很多浏览器并不支持</p>
+<p><strong>4.封装属性访问器/数据劫持（vue.js）</strong></p>
+<p>结合发布者-订阅者模式的方式，通过ES5的<code>Object.defineProperty()</code>来劫持各个属性的<code>setter</code>，<code>getter</code></p>
+<h5 id="三种隐藏方式差别-visibility-hidden-display-none-opacity-0"><a href="#三种隐藏方式差别-visibility-hidden-display-none-opacity-0" class="headerlink" title="三种隐藏方式差别:visibility:hidden,display:none,opacity:0"></a>三种隐藏方式差别:visibility:hidden,display:none,opacity:0</h5><p>渲染上的差异:<br>1.将元素设置为display:none后，元素在页面上将彻底消失，元素本来占有的空间就会被其他元素占有，也就是说它会导致浏览器的回流和重绘。</p>
+<p>2.设置元素的visibility为hidden，和display:none的区别在于，元素在页面消失后，其占据的空间依旧会保留着，所以它只会导致浏览器重绘而不会回流。</p>
+<p>3.opacity:0,只是看不到元素,元素依然存在并且占有原有位置. 注: 事件绑定的差异: 1、display:none：元素彻底消失，不会触发绑定的事件.<br>2、visibility:hidden：无法触发其点击事件，有一种说法是display:none是元素看不见摸不着，而visibility:hidden是看不见摸得着，这种说法是不准确的，设置元素的visibility后无法触发点击事件，说明这种方法元素也是消失了，只是依然占据着页面空间。<br>3、opacity:0：可以触发点击事件，设置元素透明度为0后，元素只是相对于人眼不存在而已，对浏览器来说，它还是存在的，所以可以触发绑定事件<br>动画属性的差异: 1、display:none：完全不受transition属性的影响，元素立即消失<br>2、visibility：hidden：元素消失的时间跟transition属性设置的时间一样，但是没有动画效果.<br>3、opacity:0,动画属性生效,能够进行正常的动画效果.</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/hexo-centmaster/tags/interview/" rel="tag"># interview</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/hexo-centmaster/2017/09/13/algorithm/" rel="next" title="algorithm">
+                <i class="fa fa-chevron-left"></i> algorithm
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/hexo-centmaster/2017/09/13/readbook/" rel="prev" title="readbook">
+                readbook <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Inhaltsverzeichnis
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Übersicht
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          
+            <p class="site-author-name" itemprop="name">centmaster</p>
+            <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+            
+              <a href="/hexo-centmaster/archives/">
+            
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">Artikel</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">Tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#不成体系的各种知识点看到不会的就记录下来"><span class="nav-number">1.</span> <span class="nav-text">不成体系的各种知识点看到不会的就记录下来</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#CSS-W3C盒子和IE盒子的如何互相转化"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">CSS W3C盒子和IE盒子的如何互相转化</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Array对象自带的排序函数底层是怎么实现的？"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">Array对象自带的排序函数底层是怎么实现的？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#邮箱-正则https-segmentfault-com-q-1010000006661187"><span class="nav-number">1.0.0.3.</span> <span class="nav-text">邮箱 正则https://segmentfault.com/q/1010000006661187</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#面向对象-面向过程"><span class="nav-number">1.0.0.4.</span> <span class="nav-text">面向对象 面向过程</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#JS实现异步的方法"><span class="nav-number">1.0.0.5.</span> <span class="nav-text">JS实现异步的方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#移动端前端配适方案"><span class="nav-number">1.0.0.6.</span> <span class="nav-text">移动端前端配适方案</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#懒加载的性能优化"><span class="nav-number">1.0.0.7.</span> <span class="nav-text">懒加载的性能优化</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#cookie除了key与value还有哪些参数"><span class="nav-number">1.0.0.8.</span> <span class="nav-text">cookie除了key与value还有哪些参数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#typeof"><span class="nav-number">1.0.0.9.</span> <span class="nav-text">typeof</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#常用算法排序"><span class="nav-number">1.0.0.10.</span> <span class="nav-text">常用算法排序</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#事件绑定"><span class="nav-number">1.0.0.11.</span> <span class="nav-text">事件绑定</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#ES6和ES5继承的区别"><span class="nav-number">1.0.0.12.</span> <span class="nav-text">ES6和ES5继承的区别</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#cnd-dns"><span class="nav-number">1.0.0.13.</span> <span class="nav-text">cnd dns</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#文档流"><span class="nav-number">1.0.0.14.</span> <span class="nav-text">文档流</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Web优化策略"><span class="nav-number">1.0.0.15.</span> <span class="nav-text">Web优化策略</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#rem和em的区别"><span class="nav-number">1.0.0.16.</span> <span class="nav-text">rem和em的区别</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#发现一个神奇的东西"><span class="nav-number">1.0.0.17.</span> <span class="nav-text">发现一个神奇的东西</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#css百分比相对于谁"><span class="nav-number">1.0.0.18.</span> <span class="nav-text">css百分比相对于谁</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#js严格模式"><span class="nav-number">1.0.0.19.</span> <span class="nav-text">js严格模式</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#语法限制"><span class="nav-number">1.0.0.19.1.</span> <span class="nav-text">语法限制</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#遍历方法的区别"><span class="nav-number">1.0.0.20.</span> <span class="nav-text">遍历方法的区别</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#原生css实现三角形"><span class="nav-number">1.0.0.21.</span> <span class="nav-text">原生css实现三角形</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#https和http以及http2"><span class="nav-number">1.0.0.22.</span> <span class="nav-text">https和http以及http2</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#影响http的主要因素"><span class="nav-number">1.0.0.22.1.</span> <span class="nav-text">影响http的主要因素</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#1-0和1-1的区别"><span class="nav-number">1.0.0.22.2.</span> <span class="nav-text">1.0和1.1的区别</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#为了保证安全性，https应运而生"><span class="nav-number">1.0.0.22.3.</span> <span class="nav-text">为了保证安全性，https应运而生</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#使用SPDY—在http和ssl中间层"><span class="nav-number">1.0.0.22.4.</span> <span class="nav-text">使用SPDY—在http和ssl中间层</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#HTTP2-0新特性"><span class="nav-number">1.0.0.22.5.</span> <span class="nav-text">HTTP2.0新特性</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#线程与进程"><span class="nav-number">1.0.0.23.</span> <span class="nav-text">线程与进程</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#async-await和generator的区别"><span class="nav-number">1.0.0.24.</span> <span class="nav-text">async await和generator的区别</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#json和对象的区别"><span class="nav-number">1.0.0.25.</span> <span class="nav-text">json和对象的区别</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#object-create的实现原理"><span class="nav-number">1.0.0.26.</span> <span class="nav-text">object.create的实现原理</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#前后端分离怎么做？意义？"><span class="nav-number">1.0.0.27.</span> <span class="nav-text">前后端分离怎么做？意义？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#cookie-LocalStorage被重复覆盖"><span class="nav-number">1.0.0.28.</span> <span class="nav-text">cookie,LocalStorage被重复覆盖</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#js-如何添加class-不覆盖原来的"><span class="nav-number">1.0.0.29.</span> <span class="nav-text">js 如何添加class 不覆盖原来的</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#一个何时会报undefined，何时会报referenceerror"><span class="nav-number">1.0.0.30.</span> <span class="nav-text">一个何时会报undefined，何时会报referenceerror</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#判断js对象是否存在的方法"><span class="nav-number">1.0.0.31.</span> <span class="nav-text">判断js对象是否存在的方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#函数优先"><span class="nav-number">1.0.0.32.</span> <span class="nav-text">函数优先</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#window-onload和-document-ready-的区别，浏览器加载转圈结束时哪个时间点？"><span class="nav-number">1.0.0.33.</span> <span class="nav-text">window.onload和$(document).ready()的区别，浏览器加载转圈结束时哪个时间点？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#babel的使用规则"><span class="nav-number">1.0.0.34.</span> <span class="nav-text">babel的使用规则</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#js的内存泄露问题"><span class="nav-number">1.0.0.35.</span> <span class="nav-text">js的内存泄露问题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#url和uli的区别"><span class="nav-number">1.0.0.36.</span> <span class="nav-text">url和uli的区别</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Dom渲染树渲染过程。-其实不同的浏览器引擎渲染过程稍有不同"><span class="nav-number">1.0.0.37.</span> <span class="nav-text">Dom渲染树渲染过程。 其实不同的浏览器引擎渲染过程稍有不同</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#HTML和XHTML的区别"><span class="nav-number">1.0.0.38.</span> <span class="nav-text">HTML和XHTML的区别</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#怪异模式和标准模式的区别在哪（判断alert-window-top-document-compatMode-）"><span class="nav-number">1.0.0.39.</span> <span class="nav-text">怪异模式和标准模式的区别在哪（判断alert(window.top.document.compatMode) ）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#除了ajax之外，你知道fetch嘛"><span class="nav-number">1.0.0.40.</span> <span class="nav-text">除了ajax之外，你知道fetch嘛</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#http相应头和请求头"><span class="nav-number">1.0.0.41.</span> <span class="nav-text">http相应头和请求头</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Http2-优势-https-segmentfault-com-a-1190000005085636"><span class="nav-number">1.0.0.42.</span> <span class="nav-text">Http2 优势(https://segmentfault.com/a/1190000005085636)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#两个页面之间通信"><span class="nav-number">1.0.0.43.</span> <span class="nav-text">两个页面之间通信</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#前端路由和后端路由的区别"><span class="nav-number">1.0.0.44.</span> <span class="nav-text">前端路由和后端路由的区别</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#为什么要使用这种框架而不用原生api操作dom，性能并没有优化"><span class="nav-number">1.0.0.45.</span> <span class="nav-text">为什么要使用这种框架而不用原生api操作dom，性能并没有优化</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#严格模式"><span class="nav-number">1.0.0.46.</span> <span class="nav-text">严格模式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#NaN"><span class="nav-number">1.0.0.47.</span> <span class="nav-text">NaN</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#isInteger实现"><span class="nav-number">1.0.0.48.</span> <span class="nav-text">isInteger实现</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#实现函数，-实现功能"><span class="nav-number">1.0.0.49.</span> <span class="nav-text">实现函数， 实现功能</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#单向绑定和双向绑定（http-www-jianshu-com-p-4ec74cb5b748）"><span class="nav-number">1.0.0.50.</span> <span class="nav-text">单向绑定和双向绑定（http://www.jianshu.com/p/4ec74cb5b748）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#实现双向数据绑定的做法"><span class="nav-number">1.0.0.51.</span> <span class="nav-text">实现双向数据绑定的做法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#三种隐藏方式差别-visibility-hidden-display-none-opacity-0"><span class="nav-number">1.0.0.52.</span> <span class="nav-text">三种隐藏方式差别:visibility:hidden,display:none,opacity:0</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">centmaster</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a></div>
+
+  <span class="post-meta-divider">|</span>
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.2</div>
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/hexo-centmaster/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/hexo-centmaster/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/hexo-centmaster/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/hexo-centmaster/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/hexo-centmaster/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/hexo-centmaster/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/hexo-centmaster/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/hexo-centmaster/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+  <script type="text/javascript" src="/hexo-centmaster/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/hexo-centmaster/js/src/post-details.js?v=5.1.2"></script>
+
+
+  
+  <script type="text/javascript" src="/hexo-centmaster/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/hexo-centmaster/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/hexo-centmaster/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
