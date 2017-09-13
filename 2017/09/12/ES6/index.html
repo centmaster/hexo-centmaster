@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="">
+<html class="theme-next gemini use-motion" lang="">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -95,17 +95,17 @@
 
 
 
-<meta name="description" content="ES6入门  个人总结ES6生命变量的六种方式let const promise reflect proxy generator decorator Symbol Iterator 结构赋值 Array: .from .of …(扩展运算符) .copyWithin .find .findindex .includes .fill .entires .keys .values Object: 属性">
+<meta name="description" content="ES6生命变量的六种方式let const promise reflect proxy generator decorator Symbol Iterator 结构赋值 Array: .from .of …(扩展运算符) .copyWithin .find .findindex .includes .fill .entires .keys .values Object: 属性表达式 .is .as">
 <meta name="keywords" content="interview">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ES6">
-<meta property="og:url" content="https://github.com/centmaster/hexo-centmaster/2017/09/13/ES6/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="ES6入门  个人总结ES6生命变量的六种方式let const promise reflect proxy generator decorator Symbol Iterator 结构赋值 Array: .from .of …(扩展运算符) .copyWithin .find .findindex .includes .fill .entires .keys .values Object: 属性">
-<meta property="og:updated_time" content="2017-09-13T13:55:33.000Z">
+<meta property="og:title" content="ES6 快速掌握">
+<meta property="og:url" content="https://github.com/centmaster/hexo-centmaster/2017/09/12/ES6/index.html">
+<meta property="og:site_name" content="Centmaster的地盘">
+<meta property="og:description" content="ES6生命变量的六种方式let const promise reflect proxy generator decorator Symbol Iterator 结构赋值 Array: .from .of …(扩展运算符) .copyWithin .find .findindex .includes .fill .entires .keys .values Object: 属性表达式 .is .as">
+<meta property="og:updated_time" content="2017-09-13T14:28:43.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ES6">
-<meta name="twitter:description" content="ES6入门  个人总结ES6生命变量的六种方式let const promise reflect proxy generator decorator Symbol Iterator 结构赋值 Array: .from .of …(扩展运算符) .copyWithin .find .findindex .includes .fill .entires .keys .values Object: 属性">
+<meta name="twitter:title" content="ES6 快速掌握">
+<meta name="twitter:description" content="ES6生命变量的六种方式let const promise reflect proxy generator decorator Symbol Iterator 结构赋值 Array: .from .of …(扩展运算符) .copyWithin .find .findindex .includes .fill .entires .keys .values Object: 属性表达式 .is .as">
 
 
 
@@ -113,7 +113,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/hexo-centmaster/',
-    scheme: 'Muse',
+    scheme: 'Gemini',
     version: '5.1.2',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
@@ -135,13 +135,13 @@
 
 
 
-  <link rel="canonical" href="https://github.com/centmaster/hexo-centmaster/2017/09/13/ES6/"/>
+  <link rel="canonical" href="https://github.com/centmaster/hexo-centmaster/2017/09/12/ES6/"/>
 
 
 
 
 
-  <title>ES6 | Hexo</title>
+  <title>ES6 快速掌握 | Centmaster的地盘</title>
   
 
 
@@ -171,12 +171,12 @@
     <div class="custom-logo-site-title">
       <a href="/hexo-centmaster/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Hexo</span>
+        <span class="site-title">Centmaster的地盘</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
       
-        <p class="site-subtitle"></p>
+        <p class="site-subtitle">FEer</p>
       
   </div>
 
@@ -202,6 +202,16 @@
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
             Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/hexo-centmaster/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
           </a>
         </li>
       
@@ -248,7 +258,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/centmaster/hexo-centmaster/hexo-centmaster/2017/09/13/ES6/">
+    <link itemprop="mainEntityOfPage" href="https://github.com/centmaster/hexo-centmaster/hexo-centmaster/2017/09/12/ES6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="centmaster">
@@ -257,7 +267,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="Centmaster的地盘">
     </span>
 
     
@@ -265,7 +275,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">ES6</h1>
+          <h1 class="post-title" itemprop="name headline">ES6 快速掌握</h1>
         
 
         <div class="post-meta">
@@ -277,8 +287,8 @@
               
                 <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-13T20:50:19+08:00">
-                2017-09-13
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-12T20:50:19+08:00">
+                2017-09-12
               </time>
             
 
@@ -315,7 +325,7 @@
       
 
       
-        <h2 id="ES6入门-个人总结"><a href="#ES6入门-个人总结" class="headerlink" title="ES6入门  个人总结"></a>ES6入门  个人总结</h2><h4 id="ES6生命变量的六种方式"><a href="#ES6生命变量的六种方式" class="headerlink" title="ES6生命变量的六种方式"></a>ES6生命变量的六种方式</h4><p>let const promise reflect proxy generator decorator Symbol Iterator 结构赋值</p>
+        <h4 id="ES6生命变量的六种方式"><a href="#ES6生命变量的六种方式" class="headerlink" title="ES6生命变量的六种方式"></a>ES6生命变量的六种方式</h4><p>let const promise reflect proxy generator decorator Symbol Iterator 结构赋值</p>
 <p>Array: .from .of …(扩展运算符) .copyWithin .find .findindex .includes .fill .entires .keys .values</p>
 <p>Object: 属性表达式 .is .assign </p>
 <p>class</p>
@@ -621,14 +631,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/hexo-centmaster/2017/09/11/algorithm/" rel="next" title="algorithm 前端算法">
+                <i class="fa fa-chevron-left"></i> algorithm 前端算法
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/hexo-centmaster/2017/09/13/FE-sum/" rel="prev" title="FE-sum">
-                FE-sum <i class="fa fa-chevron-right"></i>
+              <a href="/hexo-centmaster/2017/09/13/nk-interview/" rel="prev" title="自己看到其他人面经的只是查漏补缺">
+                自己看到其他人面经的只是查漏补缺 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -695,7 +709,7 @@
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           
             <p class="site-author-name" itemprop="name">centmaster</p>
-            <p class="site-description motion-element" itemprop="description"></p>
+            <p class="site-description motion-element" itemprop="description">足球，利物浦，杰拉德，sia，憧憬着很多，更多</p>
         </div>
 
         <nav class="site-state motion-element">
@@ -717,10 +731,10 @@
             
             
             <div class="site-state-item site-state-tags">
-              
+              <a href="/hexo-centmaster/tags/index.html">
                 <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">Tags</span>
-              
+              </a>
             </div>
           
 
@@ -753,7 +767,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#ES6入门-个人总结"><span class="nav-number">1.</span> <span class="nav-text">ES6入门  个人总结</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ES6生命变量的六种方式"><span class="nav-number">1.0.1.</span> <span class="nav-text">ES6生命变量的六种方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-let-const"><span class="nav-number">1.0.2.</span> <span class="nav-text">1.let/const</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#let"><span class="nav-number">1.0.2.1.</span> <span class="nav-text">let</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#const"><span class="nav-number">1.0.2.2.</span> <span class="nav-text">const</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#const必须声明的时候赋值"><span class="nav-number">1.0.2.2.1.</span> <span class="nav-text">const必须声明的时候赋值</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#块级作用域"><span class="nav-number">1.0.2.3.</span> <span class="nav-text">块级作用域</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#顶层对象"><span class="nav-number">1.0.2.4.</span> <span class="nav-text">顶层对象</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-函数的扩展"><span class="nav-number">1.0.3.</span> <span class="nav-text">2.函数的扩展</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#基本的用法"><span class="nav-number">1.0.3.1.</span> <span class="nav-text">基本的用法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#rest参数"><span class="nav-number">1.0.3.2.</span> <span class="nav-text">rest参数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#严格模式"><span class="nav-number">1.0.3.3.</span> <span class="nav-text">严格模式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#name属性"><span class="nav-number">1.0.3.4.</span> <span class="nav-text">name属性</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#箭头函数有几个使用注意点。"><span class="nav-number">1.0.3.5.</span> <span class="nav-text">箭头函数有几个使用注意点。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#替换掉call，apply，bind绑定"><span class="nav-number">1.0.3.6.</span> <span class="nav-text">替换掉call，apply，bind绑定</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#尾部调用优化！！！"><span class="nav-number">1.0.3.7.</span> <span class="nav-text">尾部调用优化！！！</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#尾部递归！！！（栈溢出）"><span class="nav-number">1.0.3.8.</span> <span class="nav-text">尾部递归！！！（栈溢出）</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#允许最后一个参数有分号"><span class="nav-number">1.0.3.8.1.</span> <span class="nav-text">允许最后一个参数有分号</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-Promise基本用法"><span class="nav-number">1.0.4.</span> <span class="nav-text">3.Promise基本用法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#其他一些方法"><span class="nav-number">1.0.4.1.</span> <span class="nav-text">其他一些方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Promise-all"><span class="nav-number">1.0.4.2.</span> <span class="nav-text">Promise.all()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Promise-race"><span class="nav-number">1.0.4.3.</span> <span class="nav-text">Promise.race()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Promise-resolve"><span class="nav-number">1.0.4.4.</span> <span class="nav-text">Promise.resolve()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Promise-reject"><span class="nav-number">1.0.4.5.</span> <span class="nav-text">Promise.reject()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Promise-done"><span class="nav-number">1.0.4.6.</span> <span class="nav-text">Promise.done()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Promise-finally"><span class="nav-number">1.0.4.7.</span> <span class="nav-text">Promise.finally()</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-变量的结构赋值"><span class="nav-number">1.0.5.</span> <span class="nav-text">4.变量的结构赋值</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#数组"><span class="nav-number">1.0.5.1.</span> <span class="nav-text">数组</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#对象"><span class="nav-number">1.0.5.2.</span> <span class="nav-text">对象</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#字符串"><span class="nav-number">1.0.5.3.</span> <span class="nav-text">字符串</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#数值和布尔值"><span class="nav-number">1.0.5.4.</span> <span class="nav-text">数值和布尔值</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#函数"><span class="nav-number">1.0.5.5.</span> <span class="nav-text">函数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#圆括号问题"><span class="nav-number">1.0.5.6.</span> <span class="nav-text">圆括号问题</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#用途"><span class="nav-number">1.0.5.6.1.</span> <span class="nav-text">用途</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-数组的扩展"><span class="nav-number">1.0.6.</span> <span class="nav-text">5.数组的扩展</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#扩展运算符"><span class="nav-number">1.0.6.1.</span> <span class="nav-text">扩展运算符</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Array-from"><span class="nav-number">1.0.6.2.</span> <span class="nav-text">Array.from</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Array-of"><span class="nav-number">1.0.6.3.</span> <span class="nav-text">Array.of</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#copyWithin"><span class="nav-number">1.0.6.4.</span> <span class="nav-text">copyWithin</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#find-amp-amp-findindex"><span class="nav-number">1.0.6.5.</span> <span class="nav-text">find && findindex</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#includes"><span class="nav-number">1.0.6.6.</span> <span class="nav-text">includes</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#fill"><span class="nav-number">1.0.6.7.</span> <span class="nav-text">fill</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#entries-，keys-和-values"><span class="nav-number">1.0.6.8.</span> <span class="nav-text">entries()，keys() 和 values()</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-对象的扩展"><span class="nav-number">1.0.7.</span> <span class="nav-text">6.对象的扩展</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#属性的简洁表示"><span class="nav-number">1.0.7.1.</span> <span class="nav-text">属性的简洁表示</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#属性名表达式"><span class="nav-number">1.0.7.2.</span> <span class="nav-text">属性名表达式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Object-is"><span class="nav-number">1.0.7.3.</span> <span class="nav-text">Object.is()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Object-assign"><span class="nav-number">1.0.7.4.</span> <span class="nav-text">Object.assign()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#属性的遍历"><span class="nav-number">1.0.7.5.</span> <span class="nav-text">属性的遍历</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Null传到运算符"><span class="nav-number">1.0.7.6.</span> <span class="nav-text">Null传到运算符</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-Symbol"><span class="nav-number">1.0.8.</span> <span class="nav-text">7.Symbol</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-Proxy-amp-amp-Reflect"><span class="nav-number">1.0.9.</span> <span class="nav-text">8.Proxy&&Reflect</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Proxy"><span class="nav-number">1.0.9.1.</span> <span class="nav-text">Proxy</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Reflect"><span class="nav-number">1.0.9.2.</span> <span class="nav-text">Reflect</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-Iterator与for…of-循环"><span class="nav-number">1.0.10.</span> <span class="nav-text">9.Iterator与for…of 循环</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#默认Iterator接口———-Symbol-iterator"><span class="nav-number">1.0.10.1.</span> <span class="nav-text">默认Iterator接口———[Symbol.iterator]</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-调用Iterator接口的场合"><span class="nav-number">1.0.10.2.</span> <span class="nav-text">3.调用Iterator接口的场合</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-遍历器对象的return-throw"><span class="nav-number">1.0.10.3.</span> <span class="nav-text">4.遍历器对象的return(),throw()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-for…of-好在哪里"><span class="nav-number">1.0.10.4.</span> <span class="nav-text">5.for…of 好在哪里</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6-为对象添加Iterator接口"><span class="nav-number">1.0.10.5.</span> <span class="nav-text">6.为对象添加Iterator接口</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-Generator函数"><span class="nav-number">1.0.11.</span> <span class="nav-text">10.Generator函数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#应用"><span class="nav-number">1.0.11.1.</span> <span class="nav-text">应用</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11-async"><span class="nav-number">1.0.12.</span> <span class="nav-text">11.async</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#12-Class"><span class="nav-number">1.0.13.</span> <span class="nav-text">12.Class</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#13-修饰器"><span class="nav-number">1.0.14.</span> <span class="nav-text">13.修饰器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#14-Module的加载实现"><span class="nav-number">1.0.15.</span> <span class="nav-text">14.Module的加载实现</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#ES6模块加载与commonJS的差异"><span class="nav-number">1.0.15.1.</span> <span class="nav-text">ES6模块加载与commonJS的差异</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#ES6生命变量的六种方式"><span class="nav-number">1.</span> <span class="nav-text">ES6生命变量的六种方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-let-const"><span class="nav-number">2.</span> <span class="nav-text">1.let/const</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#let"><span class="nav-number">2.1.</span> <span class="nav-text">let</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#const"><span class="nav-number">2.2.</span> <span class="nav-text">const</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#const必须声明的时候赋值"><span class="nav-number">2.2.1.</span> <span class="nav-text">const必须声明的时候赋值</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#块级作用域"><span class="nav-number">2.3.</span> <span class="nav-text">块级作用域</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#顶层对象"><span class="nav-number">2.4.</span> <span class="nav-text">顶层对象</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-函数的扩展"><span class="nav-number">3.</span> <span class="nav-text">2.函数的扩展</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#基本的用法"><span class="nav-number">3.1.</span> <span class="nav-text">基本的用法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#rest参数"><span class="nav-number">3.2.</span> <span class="nav-text">rest参数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#严格模式"><span class="nav-number">3.3.</span> <span class="nav-text">严格模式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#name属性"><span class="nav-number">3.4.</span> <span class="nav-text">name属性</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#箭头函数有几个使用注意点。"><span class="nav-number">3.5.</span> <span class="nav-text">箭头函数有几个使用注意点。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#替换掉call，apply，bind绑定"><span class="nav-number">3.6.</span> <span class="nav-text">替换掉call，apply，bind绑定</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#尾部调用优化！！！"><span class="nav-number">3.7.</span> <span class="nav-text">尾部调用优化！！！</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#尾部递归！！！（栈溢出）"><span class="nav-number">3.8.</span> <span class="nav-text">尾部递归！！！（栈溢出）</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#允许最后一个参数有分号"><span class="nav-number">3.8.1.</span> <span class="nav-text">允许最后一个参数有分号</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-Promise基本用法"><span class="nav-number">4.</span> <span class="nav-text">3.Promise基本用法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#其他一些方法"><span class="nav-number">4.1.</span> <span class="nav-text">其他一些方法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Promise-all"><span class="nav-number">4.2.</span> <span class="nav-text">Promise.all()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Promise-race"><span class="nav-number">4.3.</span> <span class="nav-text">Promise.race()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Promise-resolve"><span class="nav-number">4.4.</span> <span class="nav-text">Promise.resolve()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Promise-reject"><span class="nav-number">4.5.</span> <span class="nav-text">Promise.reject()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Promise-done"><span class="nav-number">4.6.</span> <span class="nav-text">Promise.done()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Promise-finally"><span class="nav-number">4.7.</span> <span class="nav-text">Promise.finally()</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-变量的结构赋值"><span class="nav-number">5.</span> <span class="nav-text">4.变量的结构赋值</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#数组"><span class="nav-number">5.1.</span> <span class="nav-text">数组</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#对象"><span class="nav-number">5.2.</span> <span class="nav-text">对象</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#字符串"><span class="nav-number">5.3.</span> <span class="nav-text">字符串</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#数值和布尔值"><span class="nav-number">5.4.</span> <span class="nav-text">数值和布尔值</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#函数"><span class="nav-number">5.5.</span> <span class="nav-text">函数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#圆括号问题"><span class="nav-number">5.6.</span> <span class="nav-text">圆括号问题</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#用途"><span class="nav-number">5.6.1.</span> <span class="nav-text">用途</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-数组的扩展"><span class="nav-number">6.</span> <span class="nav-text">5.数组的扩展</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#扩展运算符"><span class="nav-number">6.1.</span> <span class="nav-text">扩展运算符</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Array-from"><span class="nav-number">6.2.</span> <span class="nav-text">Array.from</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Array-of"><span class="nav-number">6.3.</span> <span class="nav-text">Array.of</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#copyWithin"><span class="nav-number">6.4.</span> <span class="nav-text">copyWithin</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#find-amp-amp-findindex"><span class="nav-number">6.5.</span> <span class="nav-text">find && findindex</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#includes"><span class="nav-number">6.6.</span> <span class="nav-text">includes</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#fill"><span class="nav-number">6.7.</span> <span class="nav-text">fill</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#entries-，keys-和-values"><span class="nav-number">6.8.</span> <span class="nav-text">entries()，keys() 和 values()</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-对象的扩展"><span class="nav-number">7.</span> <span class="nav-text">6.对象的扩展</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#属性的简洁表示"><span class="nav-number">7.1.</span> <span class="nav-text">属性的简洁表示</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#属性名表达式"><span class="nav-number">7.2.</span> <span class="nav-text">属性名表达式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Object-is"><span class="nav-number">7.3.</span> <span class="nav-text">Object.is()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Object-assign"><span class="nav-number">7.4.</span> <span class="nav-text">Object.assign()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#属性的遍历"><span class="nav-number">7.5.</span> <span class="nav-text">属性的遍历</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Null传到运算符"><span class="nav-number">7.6.</span> <span class="nav-text">Null传到运算符</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-Symbol"><span class="nav-number">8.</span> <span class="nav-text">7.Symbol</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#8-Proxy-amp-amp-Reflect"><span class="nav-number">9.</span> <span class="nav-text">8.Proxy&&Reflect</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Proxy"><span class="nav-number">9.1.</span> <span class="nav-text">Proxy</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Reflect"><span class="nav-number">9.2.</span> <span class="nav-text">Reflect</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-Iterator与for…of-循环"><span class="nav-number">10.</span> <span class="nav-text">9.Iterator与for…of 循环</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#默认Iterator接口———-Symbol-iterator"><span class="nav-number">10.1.</span> <span class="nav-text">默认Iterator接口———[Symbol.iterator]</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-调用Iterator接口的场合"><span class="nav-number">10.2.</span> <span class="nav-text">3.调用Iterator接口的场合</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-遍历器对象的return-throw"><span class="nav-number">10.3.</span> <span class="nav-text">4.遍历器对象的return(),throw()</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-for…of-好在哪里"><span class="nav-number">10.4.</span> <span class="nav-text">5.for…of 好在哪里</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6-为对象添加Iterator接口"><span class="nav-number">10.5.</span> <span class="nav-text">6.为对象添加Iterator接口</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-Generator函数"><span class="nav-number">11.</span> <span class="nav-text">10.Generator函数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#应用"><span class="nav-number">11.1.</span> <span class="nav-text">应用</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11-async"><span class="nav-number">12.</span> <span class="nav-text">11.async</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#12-Class"><span class="nav-number">13.</span> <span class="nav-text">12.Class</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#13-修饰器"><span class="nav-number">14.</span> <span class="nav-text">13.修饰器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#14-Module的加载实现"><span class="nav-number">15.</span> <span class="nav-text">14.Module的加载实现</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#ES6模块加载与commonJS的差异"><span class="nav-number">15.1.</span> <span class="nav-text">ES6模块加载与commonJS的差异</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -790,7 +804,7 @@
 
   <span class="post-meta-divider">|</span>
 
-  <div class="theme-info">Theme &mdash; <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.2</div>
+  <div class="theme-info">Theme &mdash; <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.2</div>
 
 
         
@@ -873,6 +887,13 @@
 
   
   
+
+
+  <script type="text/javascript" src="/hexo-centmaster/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/hexo-centmaster/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
 
   <script type="text/javascript" src="/hexo-centmaster/js/src/scrollspy.js?v=5.1.2"></script>
 <script type="text/javascript" src="/hexo-centmaster/js/src/post-details.js?v=5.1.2"></script>

@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="">
+<html class="theme-next gemini use-motion" lang="">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -95,17 +95,17 @@
 
 
 
-<meta name="description" content="对于MVC、MVP、MVVM三种模式的理解mv*本质都是处理model层和vision层之间的关系，数据的流动方式。">
+<meta name="description" content="对于MVC、MVP、MVVM三种模式的理解 mv*本质都是处理model层和vision层之间的关系，数据的流动方式。">
 <meta name="keywords" content="mvvm">
 <meta property="og:type" content="article">
-<meta property="og:title" content="mv*">
-<meta property="og:url" content="https://github.com/centmaster/hexo-centmaster/2017/09/13/mv/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="对于MVC、MVP、MVVM三种模式的理解mv*本质都是处理model层和vision层之间的关系，数据的流动方式。">
-<meta property="og:updated_time" content="2017-09-13T14:08:31.000Z">
+<meta property="og:title" content="mv* 三种模式直接的对比理解">
+<meta property="og:url" content="https://github.com/centmaster/hexo-centmaster/2017/09/03/mv/index.html">
+<meta property="og:site_name" content="Centmaster的地盘">
+<meta property="og:description" content="对于MVC、MVP、MVVM三种模式的理解 mv*本质都是处理model层和vision层之间的关系，数据的流动方式。">
+<meta property="og:updated_time" content="2017-09-13T14:29:39.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="mv*">
-<meta name="twitter:description" content="对于MVC、MVP、MVVM三种模式的理解mv*本质都是处理model层和vision层之间的关系，数据的流动方式。">
+<meta name="twitter:title" content="mv* 三种模式直接的对比理解">
+<meta name="twitter:description" content="对于MVC、MVP、MVVM三种模式的理解 mv*本质都是处理model层和vision层之间的关系，数据的流动方式。">
 
 
 
@@ -113,7 +113,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/hexo-centmaster/',
-    scheme: 'Muse',
+    scheme: 'Gemini',
     version: '5.1.2',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
@@ -135,13 +135,13 @@
 
 
 
-  <link rel="canonical" href="https://github.com/centmaster/hexo-centmaster/2017/09/13/mv/"/>
+  <link rel="canonical" href="https://github.com/centmaster/hexo-centmaster/2017/09/03/mv/"/>
 
 
 
 
 
-  <title>mv* | Hexo</title>
+  <title>mv* 三种模式直接的对比理解 | Centmaster的地盘</title>
   
 
 
@@ -171,12 +171,12 @@
     <div class="custom-logo-site-title">
       <a href="/hexo-centmaster/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Hexo</span>
+        <span class="site-title">Centmaster的地盘</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
       
-        <p class="site-subtitle"></p>
+        <p class="site-subtitle">FEer</p>
       
   </div>
 
@@ -202,6 +202,16 @@
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
             Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/hexo-centmaster/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
           </a>
         </li>
       
@@ -248,7 +258,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/centmaster/hexo-centmaster/hexo-centmaster/2017/09/13/mv/">
+    <link itemprop="mainEntityOfPage" href="https://github.com/centmaster/hexo-centmaster/hexo-centmaster/2017/09/03/mv/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="centmaster">
@@ -257,7 +267,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="Centmaster的地盘">
     </span>
 
     
@@ -265,7 +275,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">mv*</h1>
+          <h1 class="post-title" itemprop="name headline">mv* 三种模式直接的对比理解</h1>
         
 
         <div class="post-meta">
@@ -277,8 +287,8 @@
               
                 <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-13T22:02:28+08:00">
-                2017-09-13
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-03T22:02:28+08:00">
+                2017-09-03
               </time>
             
 
@@ -315,7 +325,8 @@
       
 
       
-        <h3 id="对于MVC、MVP、MVVM三种模式的理解"><a href="#对于MVC、MVP、MVVM三种模式的理解" class="headerlink" title="对于MVC、MVP、MVVM三种模式的理解"></a>对于MVC、MVP、MVVM三种模式的理解</h3><p>mv*本质都是处理model层和vision层之间的关系，数据的流动方式。</p>
+        <p>对于MVC、MVP、MVVM三种模式的理解</p>
+<p>mv*本质都是处理model层和vision层之间的关系，数据的流动方式。</p>
 <a id="more"></a>
 <p><strong>数据驱动</strong></p>
 <p>在MVVM中，以前开发模式中必须先处理业务数据，然后根据的数据变化，去获取UI的引用然后更新UI，通过也是通过UI来获取用户输入，而在MVVM中，数据和业务逻辑处于一个独立的View Model中，ViewModel只要关注数据和业务逻辑，不需要和UI或者控件打交道。由数据自动去驱动UI去自动更新UI，UI的改变又同时自动反馈到数据，数据成为主导因素，这样使得在业务逻辑处理只要关心数据，方便而且简单很多。</p>
@@ -355,8 +366,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/hexo-centmaster/2017/09/13/vue-scopecss/" rel="next" title="vue-scopecss">
-                <i class="fa fa-chevron-left"></i> vue-scopecss
+              <a href="/hexo-centmaster/2017/08/25/readbook/" rel="next" title="读书笔记">
+                <i class="fa fa-chevron-left"></i> 读书笔记
               </a>
             
           </div>
@@ -364,6 +375,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/hexo-centmaster/2017/09/07/react-refresh/" rel="prev" title="react 更新机制的源码研究">
+                react 更新机制的源码研究 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -415,21 +430,12 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Inhaltsverzeichnis
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            Übersicht
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           
             <p class="site-author-name" itemprop="name">centmaster</p>
-            <p class="site-description motion-element" itemprop="description"></p>
+            <p class="site-description motion-element" itemprop="description">足球，利物浦，杰拉德，sia，憧憬着很多，更多</p>
         </div>
 
         <nav class="site-state motion-element">
@@ -451,10 +457,10 @@
             
             
             <div class="site-state-item site-state-tags">
-              
+              <a href="/hexo-centmaster/tags/index.html">
                 <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">Tags</span>
-              
+              </a>
             </div>
           
 
@@ -477,22 +483,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#对于MVC、MVP、MVVM三种模式的理解"><span class="nav-number">1.</span> <span class="nav-text">对于MVC、MVP、MVVM三种模式的理解</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
@@ -524,7 +514,7 @@
 
   <span class="post-meta-divider">|</span>
 
-  <div class="theme-info">Theme &mdash; <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.2</div>
+  <div class="theme-info">Theme &mdash; <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.2</div>
 
 
         
@@ -607,6 +597,13 @@
 
   
   
+
+
+  <script type="text/javascript" src="/hexo-centmaster/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/hexo-centmaster/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
 
   <script type="text/javascript" src="/hexo-centmaster/js/src/scrollspy.js?v=5.1.2"></script>
 <script type="text/javascript" src="/hexo-centmaster/js/src/post-details.js?v=5.1.2"></script>

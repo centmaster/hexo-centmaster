@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="">
+<html class="theme-next gemini use-motion" lang="">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -95,17 +95,17 @@
 
 
 
-<meta name="description" content="React更新机制Virtual DOMDOM元素非常庞大，具有复杂的属性，牵一发而动全身。通过JavaScript来模拟DOM树的结构，加快响应时间  建立虚拟DOM树：用JavaScript对象记录节点类型、属性、子节点。通过递归该虚拟DOM建立真正的DOM树  diff算法：因为跨层DOM操作很少，只比较同层DOM，从而将O(n^3)的比较降低到O(n)复杂度，深度优先遍历，记录差异：  替">
+<meta name="description" content="Virtual DOMDOM元素非常庞大，具有复杂的属性，牵一发而动全身。通过JavaScript来模拟DOM树的结构，加快响应时间  建立虚拟DOM树：用JavaScript对象记录节点类型、属性、子节点。通过递归该虚拟DOM建立真正的DOM树  diff算法：因为跨层DOM操作很少，只比较同层DOM，从而将O(n^3)的比较降低到O(n)复杂度，深度优先遍历，记录差异：  替换节点类型： di">
 <meta name="keywords" content="mvvm">
 <meta property="og:type" content="article">
-<meta property="og:title" content="react-refresh">
-<meta property="og:url" content="https://github.com/centmaster/hexo-centmaster/2017/09/13/react-refresh/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="React更新机制Virtual DOMDOM元素非常庞大，具有复杂的属性，牵一发而动全身。通过JavaScript来模拟DOM树的结构，加快响应时间  建立虚拟DOM树：用JavaScript对象记录节点类型、属性、子节点。通过递归该虚拟DOM建立真正的DOM树  diff算法：因为跨层DOM操作很少，只比较同层DOM，从而将O(n^3)的比较降低到O(n)复杂度，深度优先遍历，记录差异：  替">
-<meta property="og:updated_time" content="2017-09-13T14:08:43.000Z">
+<meta property="og:title" content="react 更新机制的源码研究">
+<meta property="og:url" content="https://github.com/centmaster/hexo-centmaster/2017/09/07/react-refresh/index.html">
+<meta property="og:site_name" content="Centmaster的地盘">
+<meta property="og:description" content="Virtual DOMDOM元素非常庞大，具有复杂的属性，牵一发而动全身。通过JavaScript来模拟DOM树的结构，加快响应时间  建立虚拟DOM树：用JavaScript对象记录节点类型、属性、子节点。通过递归该虚拟DOM建立真正的DOM树  diff算法：因为跨层DOM操作很少，只比较同层DOM，从而将O(n^3)的比较降低到O(n)复杂度，深度优先遍历，记录差异：  替换节点类型： di">
+<meta property="og:updated_time" content="2017-09-13T14:29:48.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="react-refresh">
-<meta name="twitter:description" content="React更新机制Virtual DOMDOM元素非常庞大，具有复杂的属性，牵一发而动全身。通过JavaScript来模拟DOM树的结构，加快响应时间  建立虚拟DOM树：用JavaScript对象记录节点类型、属性、子节点。通过递归该虚拟DOM建立真正的DOM树  diff算法：因为跨层DOM操作很少，只比较同层DOM，从而将O(n^3)的比较降低到O(n)复杂度，深度优先遍历，记录差异：  替">
+<meta name="twitter:title" content="react 更新机制的源码研究">
+<meta name="twitter:description" content="Virtual DOMDOM元素非常庞大，具有复杂的属性，牵一发而动全身。通过JavaScript来模拟DOM树的结构，加快响应时间  建立虚拟DOM树：用JavaScript对象记录节点类型、属性、子节点。通过递归该虚拟DOM建立真正的DOM树  diff算法：因为跨层DOM操作很少，只比较同层DOM，从而将O(n^3)的比较降低到O(n)复杂度，深度优先遍历，记录差异：  替换节点类型： di">
 
 
 
@@ -113,7 +113,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/hexo-centmaster/',
-    scheme: 'Muse',
+    scheme: 'Gemini',
     version: '5.1.2',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
@@ -135,13 +135,13 @@
 
 
 
-  <link rel="canonical" href="https://github.com/centmaster/hexo-centmaster/2017/09/13/react-refresh/"/>
+  <link rel="canonical" href="https://github.com/centmaster/hexo-centmaster/2017/09/07/react-refresh/"/>
 
 
 
 
 
-  <title>react-refresh | Hexo</title>
+  <title>react 更新机制的源码研究 | Centmaster的地盘</title>
   
 
 
@@ -171,12 +171,12 @@
     <div class="custom-logo-site-title">
       <a href="/hexo-centmaster/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Hexo</span>
+        <span class="site-title">Centmaster的地盘</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
       
-        <p class="site-subtitle"></p>
+        <p class="site-subtitle">FEer</p>
       
   </div>
 
@@ -202,6 +202,16 @@
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
             Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/hexo-centmaster/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
           </a>
         </li>
       
@@ -248,7 +258,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/centmaster/hexo-centmaster/hexo-centmaster/2017/09/13/react-refresh/">
+    <link itemprop="mainEntityOfPage" href="https://github.com/centmaster/hexo-centmaster/hexo-centmaster/2017/09/07/react-refresh/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="centmaster">
@@ -257,7 +267,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="Centmaster的地盘">
     </span>
 
     
@@ -265,7 +275,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">react-refresh</h1>
+          <h1 class="post-title" itemprop="name headline">react 更新机制的源码研究</h1>
         
 
         <div class="post-meta">
@@ -277,8 +287,8 @@
               
                 <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-13T22:01:39+08:00">
-                2017-09-13
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-07T22:01:39+08:00">
+                2017-09-07
               </time>
             
 
@@ -315,7 +325,7 @@
       
 
       
-        <h2 id="React更新机制"><a href="#React更新机制" class="headerlink" title="React更新机制"></a>React更新机制</h2><h5 id="Virtual-DOM"><a href="#Virtual-DOM" class="headerlink" title="Virtual DOM"></a>Virtual DOM</h5><p>DOM元素非常庞大，具有复杂的属性，牵一发而动全身。通过JavaScript来模拟DOM树的结构，加快响应时间</p>
+        <h5 id="Virtual-DOM"><a href="#Virtual-DOM" class="headerlink" title="Virtual DOM"></a>Virtual DOM</h5><p>DOM元素非常庞大，具有复杂的属性，牵一发而动全身。通过JavaScript来模拟DOM树的结构，加快响应时间</p>
 <ol>
 <li><p>建立虚拟DOM树：用JavaScript对象记录节点类型、属性、子节点。通过递归该虚拟DOM建立真正的DOM树</p>
 </li>
@@ -441,8 +451,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/hexo-centmaster/2017/09/13/readbook/" rel="next" title="readbook">
-                <i class="fa fa-chevron-left"></i> readbook
+              <a href="/hexo-centmaster/2017/09/03/mv/" rel="next" title="mv* 三种模式直接的对比理解">
+                <i class="fa fa-chevron-left"></i> mv* 三种模式直接的对比理解
               </a>
             
           </div>
@@ -451,8 +461,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/hexo-centmaster/2017/09/13/v-dom/" rel="prev" title="v-dom">
-                v-dom <i class="fa fa-chevron-right"></i>
+              <a href="/hexo-centmaster/2017/09/08/FE-sum/" rel="prev" title="FE前端技术积累总结">
+                FE前端技术积累总结 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -519,7 +529,7 @@
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           
             <p class="site-author-name" itemprop="name">centmaster</p>
-            <p class="site-description motion-element" itemprop="description"></p>
+            <p class="site-description motion-element" itemprop="description">足球，利物浦，杰拉德，sia，憧憬着很多，更多</p>
         </div>
 
         <nav class="site-state motion-element">
@@ -541,10 +551,10 @@
             
             
             <div class="site-state-item site-state-tags">
-              
+              <a href="/hexo-centmaster/tags/index.html">
                 <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">Tags</span>
-              
+              </a>
             </div>
           
 
@@ -577,7 +587,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#React更新机制"><span class="nav-number">1.</span> <span class="nav-text">React更新机制</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Virtual-DOM"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">Virtual DOM</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#diff算法自我理解"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">diff算法自我理解</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#tree-diff"><span class="nav-number">1.0.0.2.1.</span> <span class="nav-text">tree diff</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#component-diff"><span class="nav-number">1.0.0.2.2.</span> <span class="nav-text">component diff</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#element-diff"><span class="nav-number">1.0.0.2.3.</span> <span class="nav-text">element diff</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#更新机制"><span class="nav-number">1.0.0.3.</span> <span class="nav-text">更新机制</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#react自定义元素通过receiveComponent实现更新的机制"><span class="nav-number">1.0.0.4.</span> <span class="nav-text">react自定义元素通过receiveComponent实现更新的机制</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#react的dom元素使用receiveComponent更新的实现"><span class="nav-number">1.0.0.5.</span> <span class="nav-text">react的dom元素使用receiveComponent更新的实现</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#Virtual-DOM"><span class="nav-number">1.</span> <span class="nav-text">Virtual DOM</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#diff算法自我理解"><span class="nav-number">2.</span> <span class="nav-text">diff算法自我理解</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#tree-diff"><span class="nav-number">2.1.</span> <span class="nav-text">tree diff</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#component-diff"><span class="nav-number">2.2.</span> <span class="nav-text">component diff</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#element-diff"><span class="nav-number">2.3.</span> <span class="nav-text">element diff</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#更新机制"><span class="nav-number">3.</span> <span class="nav-text">更新机制</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#react自定义元素通过receiveComponent实现更新的机制"><span class="nav-number">4.</span> <span class="nav-text">react自定义元素通过receiveComponent实现更新的机制</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#react的dom元素使用receiveComponent更新的实现"><span class="nav-number">5.</span> <span class="nav-text">react的dom元素使用receiveComponent更新的实现</span></a></li></ol></div>
             
 
           </div>
@@ -614,7 +624,7 @@
 
   <span class="post-meta-divider">|</span>
 
-  <div class="theme-info">Theme &mdash; <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.2</div>
+  <div class="theme-info">Theme &mdash; <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.2</div>
 
 
         
@@ -697,6 +707,13 @@
 
   
   
+
+
+  <script type="text/javascript" src="/hexo-centmaster/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/hexo-centmaster/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
 
   <script type="text/javascript" src="/hexo-centmaster/js/src/scrollspy.js?v=5.1.2"></script>
 <script type="text/javascript" src="/hexo-centmaster/js/src/post-details.js?v=5.1.2"></script>

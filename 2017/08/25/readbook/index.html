@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next muse use-motion" lang="">
+<html class="theme-next gemini use-motion" lang="">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -95,17 +95,17 @@
 
 
 
-<meta name="description" content="读书笔记Javascript秘密花园删除属性的唯一方法是使用 delete 操作符；设置属性为 undefined 或者 null 并不能真正的删除属性， 而仅仅是移除了属性和值的关联。 一个错误特性被经常使用，那就是扩展 Object.prototype 或者其他内置类型的原型对象。 这种技术被称之为 monkey patching 并且会破坏封装。虽然它被广泛的应用到一些 JavaScript">
+<meta name="description" content="Javascript秘密花园删除属性的唯一方法是使用 delete 操作符；设置属性为 undefined 或者 null 并不能真正的删除属性， 而仅仅是移除了属性和值的关联。 一个错误特性被经常使用，那就是扩展 Object.prototype 或者其他内置类型的原型对象。 这种技术被称之为 monkey patching 并且会破坏封装。虽然它被广泛的应用到一些 JavaScript 类库中">
 <meta name="keywords" content="interview">
 <meta property="og:type" content="article">
-<meta property="og:title" content="readbook">
-<meta property="og:url" content="https://github.com/centmaster/hexo-centmaster/2017/09/13/readbook/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="读书笔记Javascript秘密花园删除属性的唯一方法是使用 delete 操作符；设置属性为 undefined 或者 null 并不能真正的删除属性， 而仅仅是移除了属性和值的关联。 一个错误特性被经常使用，那就是扩展 Object.prototype 或者其他内置类型的原型对象。 这种技术被称之为 monkey patching 并且会破坏封装。虽然它被广泛的应用到一些 JavaScript">
-<meta property="og:updated_time" content="2017-09-13T13:56:30.000Z">
+<meta property="og:title" content="读书笔记">
+<meta property="og:url" content="https://github.com/centmaster/hexo-centmaster/2017/08/25/readbook/index.html">
+<meta property="og:site_name" content="Centmaster的地盘">
+<meta property="og:description" content="Javascript秘密花园删除属性的唯一方法是使用 delete 操作符；设置属性为 undefined 或者 null 并不能真正的删除属性， 而仅仅是移除了属性和值的关联。 一个错误特性被经常使用，那就是扩展 Object.prototype 或者其他内置类型的原型对象。 这种技术被称之为 monkey patching 并且会破坏封装。虽然它被广泛的应用到一些 JavaScript 类库中">
+<meta property="og:updated_time" content="2017-09-13T14:29:55.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="readbook">
-<meta name="twitter:description" content="读书笔记Javascript秘密花园删除属性的唯一方法是使用 delete 操作符；设置属性为 undefined 或者 null 并不能真正的删除属性， 而仅仅是移除了属性和值的关联。 一个错误特性被经常使用，那就是扩展 Object.prototype 或者其他内置类型的原型对象。 这种技术被称之为 monkey patching 并且会破坏封装。虽然它被广泛的应用到一些 JavaScript">
+<meta name="twitter:title" content="读书笔记">
+<meta name="twitter:description" content="Javascript秘密花园删除属性的唯一方法是使用 delete 操作符；设置属性为 undefined 或者 null 并不能真正的删除属性， 而仅仅是移除了属性和值的关联。 一个错误特性被经常使用，那就是扩展 Object.prototype 或者其他内置类型的原型对象。 这种技术被称之为 monkey patching 并且会破坏封装。虽然它被广泛的应用到一些 JavaScript 类库中">
 
 
 
@@ -113,7 +113,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/hexo-centmaster/',
-    scheme: 'Muse',
+    scheme: 'Gemini',
     version: '5.1.2',
     sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
@@ -135,13 +135,13 @@
 
 
 
-  <link rel="canonical" href="https://github.com/centmaster/hexo-centmaster/2017/09/13/readbook/"/>
+  <link rel="canonical" href="https://github.com/centmaster/hexo-centmaster/2017/08/25/readbook/"/>
 
 
 
 
 
-  <title>readbook | Hexo</title>
+  <title>读书笔记 | Centmaster的地盘</title>
   
 
 
@@ -171,12 +171,12 @@
     <div class="custom-logo-site-title">
       <a href="/hexo-centmaster/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Hexo</span>
+        <span class="site-title">Centmaster的地盘</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
       
-        <p class="site-subtitle"></p>
+        <p class="site-subtitle">FEer</p>
       
   </div>
 
@@ -202,6 +202,16 @@
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
             Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/hexo-centmaster/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
           </a>
         </li>
       
@@ -248,7 +258,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/centmaster/hexo-centmaster/hexo-centmaster/2017/09/13/readbook/">
+    <link itemprop="mainEntityOfPage" href="https://github.com/centmaster/hexo-centmaster/hexo-centmaster/2017/08/25/readbook/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="centmaster">
@@ -257,7 +267,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
+      <meta itemprop="name" content="Centmaster的地盘">
     </span>
 
     
@@ -265,7 +275,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">readbook</h1>
+          <h1 class="post-title" itemprop="name headline">读书笔记</h1>
         
 
         <div class="post-meta">
@@ -277,8 +287,8 @@
               
                 <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-13T21:43:48+08:00">
-                2017-09-13
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-25T21:43:48+08:00">
+                2017-08-25
               </time>
             
 
@@ -315,7 +325,7 @@
       
 
       
-        <h2 id="读书笔记"><a href="#读书笔记" class="headerlink" title="读书笔记"></a>读书笔记</h2><h3 id="Javascript秘密花园"><a href="#Javascript秘密花园" class="headerlink" title="Javascript秘密花园"></a>Javascript秘密花园</h3><p>删除属性的唯一方法是使用 <code>delete</code> 操作符；设置属性为 <code>undefined</code> 或者 <code>null</code> 并不能真正的删除属性， 而<strong>仅仅</strong>是移除了属性和值的关联。</p>
+        <h3 id="Javascript秘密花园"><a href="#Javascript秘密花园" class="headerlink" title="Javascript秘密花园"></a>Javascript秘密花园</h3><p>删除属性的唯一方法是使用 <code>delete</code> 操作符；设置属性为 <code>undefined</code> 或者 <code>null</code> 并不能真正的删除属性， 而<strong>仅仅</strong>是移除了属性和值的关联。</p>
 <p>一个错误特性被经常使用，那就是扩展 <code>Object.prototype</code> 或者其他内置类型的原型对象。</p>
 <p>这种技术被称之为 <a href="http://en.wikipedia.org/wiki/Monkey_patch" target="_blank" rel="external">monkey patching</a> 并且会破坏<em>封装</em>。虽然它被广泛的应用到一些 JavaScript 类库中比如 <a href="http://prototypejs.org/" target="_blank" rel="external">Prototype</a>, 但是我仍然不认为为内置类型添加一些<em>非标准</em>的函数是个好主意。</p>
 <a id="more"></a>
@@ -414,8 +424,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/hexo-centmaster/2017/09/13/nk-interview/" rel="next" title="nk-interview">
-                <i class="fa fa-chevron-left"></i> nk-interview
+              <a href="/hexo-centmaster/2017/08/23/v-dom/" rel="next" title="vue 1和2dom渲染的分析">
+                <i class="fa fa-chevron-left"></i> vue 1和2dom渲染的分析
               </a>
             
           </div>
@@ -424,8 +434,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/hexo-centmaster/2017/09/13/react-refresh/" rel="prev" title="react-refresh">
-                react-refresh <i class="fa fa-chevron-right"></i>
+              <a href="/hexo-centmaster/2017/09/03/mv/" rel="prev" title="mv* 三种模式直接的对比理解">
+                mv* 三种模式直接的对比理解 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -492,7 +502,7 @@
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           
             <p class="site-author-name" itemprop="name">centmaster</p>
-            <p class="site-description motion-element" itemprop="description"></p>
+            <p class="site-description motion-element" itemprop="description">足球，利物浦，杰拉德，sia，憧憬着很多，更多</p>
         </div>
 
         <nav class="site-state motion-element">
@@ -514,10 +524,10 @@
             
             
             <div class="site-state-item site-state-tags">
-              
+              <a href="/hexo-centmaster/tags/index.html">
                 <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">Tags</span>
-              
+              </a>
             </div>
           
 
@@ -550,7 +560,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#读书笔记"><span class="nav-number">1.</span> <span class="nav-text">读书笔记</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Javascript秘密花园"><span class="nav-number">1.1.</span> <span class="nav-text">Javascript秘密花园</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#构造函数"><span class="nav-number">1.1.0.1.</span> <span class="nav-text">构造函数</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#用工厂模式替代构造函数"><span class="nav-number">1.1.0.1.1.</span> <span class="nav-text">用工厂模式替代构造函数</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#数组"><span class="nav-number">1.1.0.2.</span> <span class="nav-text">数组</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#类型"><span class="nav-number">1.1.0.3.</span> <span class="nav-text">类型</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#setTimeout-和-setInterval"><span class="nav-number">1.1.0.4.</span> <span class="nav-text">setTimeout 和 setInterval</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#深入理解javascript—编写高质量代码和设计模式"><span class="nav-number">1.2.</span> <span class="nav-text">深入理解javascript—编写高质量代码和设计模式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#最小全局变量"><span class="nav-number">1.2.0.1.</span> <span class="nav-text">最小全局变量</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#访问全局变量"><span class="nav-number">1.2.0.2.</span> <span class="nav-text">访问全局变量</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#单-var-形式（Single-var-Pattern）"><span class="nav-number">1.2.0.3.</span> <span class="nav-text">单 var 形式（Single var Pattern）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#for循环"><span class="nav-number">1.2.0.4.</span> <span class="nav-text">for循环</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#for…in"><span class="nav-number">1.2.0.5.</span> <span class="nav-text">for…in</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#字符串转换成数值"><span class="nav-number">1.2.0.6.</span> <span class="nav-text">字符串转换成数值</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#将声明变量和函数区分"><span class="nav-number">1.2.0.7.</span> <span class="nav-text">将声明变量和函数区分</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#全面解析-Module-模式"><span class="nav-number">1.2.1.</span> <span class="nav-text">全面解析 Module 模式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#引用全局变量"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">引用全局变量</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#关于闭包"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">关于闭包</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#扩展"><span class="nav-number">1.2.1.3.</span> <span class="nav-text">扩展</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#松散耦合扩展"><span class="nav-number">1.2.1.3.1.</span> <span class="nav-text">松散耦合扩展</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#紧耦合扩展"><span class="nav-number">1.2.1.3.2.</span> <span class="nav-text">紧耦合扩展</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#子模块"><span class="nav-number">1.2.1.3.3.</span> <span class="nav-text">子模块</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#自执行函数"><span class="nav-number">1.2.1.4.</span> <span class="nav-text">自执行函数</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Javascript秘密花园"><span class="nav-number">1.</span> <span class="nav-text">Javascript秘密花园</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#构造函数"><span class="nav-number">1.0.1.</span> <span class="nav-text">构造函数</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#用工厂模式替代构造函数"><span class="nav-number">1.0.1.1.</span> <span class="nav-text">用工厂模式替代构造函数</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#数组"><span class="nav-number">1.0.2.</span> <span class="nav-text">数组</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#类型"><span class="nav-number">1.0.3.</span> <span class="nav-text">类型</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#setTimeout-和-setInterval"><span class="nav-number">1.0.4.</span> <span class="nav-text">setTimeout 和 setInterval</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#深入理解javascript—编写高质量代码和设计模式"><span class="nav-number">2.</span> <span class="nav-text">深入理解javascript—编写高质量代码和设计模式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#最小全局变量"><span class="nav-number">2.0.1.</span> <span class="nav-text">最小全局变量</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#访问全局变量"><span class="nav-number">2.0.2.</span> <span class="nav-text">访问全局变量</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#单-var-形式（Single-var-Pattern）"><span class="nav-number">2.0.3.</span> <span class="nav-text">单 var 形式（Single var Pattern）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#for循环"><span class="nav-number">2.0.4.</span> <span class="nav-text">for循环</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#for…in"><span class="nav-number">2.0.5.</span> <span class="nav-text">for…in</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#字符串转换成数值"><span class="nav-number">2.0.6.</span> <span class="nav-text">字符串转换成数值</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#将声明变量和函数区分"><span class="nav-number">2.0.7.</span> <span class="nav-text">将声明变量和函数区分</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#全面解析-Module-模式"><span class="nav-number">2.1.</span> <span class="nav-text">全面解析 Module 模式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#引用全局变量"><span class="nav-number">2.1.1.</span> <span class="nav-text">引用全局变量</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#关于闭包"><span class="nav-number">2.1.2.</span> <span class="nav-text">关于闭包</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#扩展"><span class="nav-number">2.1.3.</span> <span class="nav-text">扩展</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#松散耦合扩展"><span class="nav-number">2.1.3.1.</span> <span class="nav-text">松散耦合扩展</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#紧耦合扩展"><span class="nav-number">2.1.3.2.</span> <span class="nav-text">紧耦合扩展</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#子模块"><span class="nav-number">2.1.3.3.</span> <span class="nav-text">子模块</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#自执行函数"><span class="nav-number">2.1.4.</span> <span class="nav-text">自执行函数</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -587,7 +597,7 @@
 
   <span class="post-meta-divider">|</span>
 
-  <div class="theme-info">Theme &mdash; <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.2</div>
+  <div class="theme-info">Theme &mdash; <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.2</div>
 
 
         
@@ -670,6 +680,13 @@
 
   
   
+
+
+  <script type="text/javascript" src="/hexo-centmaster/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/hexo-centmaster/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
 
   <script type="text/javascript" src="/hexo-centmaster/js/src/scrollspy.js?v=5.1.2"></script>
 <script type="text/javascript" src="/hexo-centmaster/js/src/post-details.js?v=5.1.2"></script>
