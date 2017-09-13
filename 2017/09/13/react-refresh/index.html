@@ -102,7 +102,7 @@
 <meta property="og:url" content="https://github.com/centmaster/hexo-centmaster/2017/09/13/react-refresh/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="React更新机制Virtual DOMDOM元素非常庞大，具有复杂的属性，牵一发而动全身。通过JavaScript来模拟DOM树的结构，加快响应时间  建立虚拟DOM树：用JavaScript对象记录节点类型、属性、子节点。通过递归该虚拟DOM建立真正的DOM树  diff算法：因为跨层DOM操作很少，只比较同层DOM，从而将O(n^3)的比较降低到O(n)复杂度，深度优先遍历，记录差异：  替">
-<meta property="og:updated_time" content="2017-09-13T14:02:55.000Z">
+<meta property="og:updated_time" content="2017-09-13T14:08:43.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="react-refresh">
 <meta name="twitter:description" content="React更新机制Virtual DOMDOM元素非常庞大，具有复杂的属性，牵一发而动全身。通过JavaScript来模拟DOM树的结构，加快响应时间  建立虚拟DOM树：用JavaScript对象记录节点类型、属性、子节点。通过递归该虚拟DOM建立真正的DOM树  diff算法：因为跨层DOM操作很少，只比较同层DOM，从而将O(n^3)的比较降低到O(n)复杂度，深度优先遍历，记录差异：  替">
@@ -329,6 +329,8 @@
 <p>记录差异类型，差异内容，压入patch数组</p>
 </li>
 <li><p>根据patch数组，对真实DOM进行操作。</p>
+</li>
+<li><a id="more"></a>
 </li>
 </ol>
 <h5 id="diff算法自我理解"><a href="#diff算法自我理解" class="headerlink" title="diff算法自我理解"></a>diff算法自我理解</h5><p>1.忽略跨层级操作                                tree diff</p>

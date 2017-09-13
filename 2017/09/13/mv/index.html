@@ -95,17 +95,17 @@
 
 
 
-<meta name="description" content="对于MVC、MVP、MVVM三种模式的理解mv*本质都是处理model层和vision层之间的关系，数据的流动方式。 数据驱动 在MVVM中，以前开发模式中必须先处理业务数据，然后根据的数据变化，去获取UI的引用然后更新UI，通过也是通过UI来获取用户输入，而在MVVM中，数据和业务逻辑处于一个独立的View Model中，ViewModel只要关注数据和业务逻辑，不需要和UI或者控件打交道。由数">
+<meta name="description" content="对于MVC、MVP、MVVM三种模式的理解mv*本质都是处理model层和vision层之间的关系，数据的流动方式。">
 <meta name="keywords" content="mvvm">
 <meta property="og:type" content="article">
 <meta property="og:title" content="mv*">
 <meta property="og:url" content="https://github.com/centmaster/hexo-centmaster/2017/09/13/mv/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="对于MVC、MVP、MVVM三种模式的理解mv*本质都是处理model层和vision层之间的关系，数据的流动方式。 数据驱动 在MVVM中，以前开发模式中必须先处理业务数据，然后根据的数据变化，去获取UI的引用然后更新UI，通过也是通过UI来获取用户输入，而在MVVM中，数据和业务逻辑处于一个独立的View Model中，ViewModel只要关注数据和业务逻辑，不需要和UI或者控件打交道。由数">
-<meta property="og:updated_time" content="2017-09-13T14:03:24.000Z">
+<meta property="og:description" content="对于MVC、MVP、MVVM三种模式的理解mv*本质都是处理model层和vision层之间的关系，数据的流动方式。">
+<meta property="og:updated_time" content="2017-09-13T14:08:31.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mv*">
-<meta name="twitter:description" content="对于MVC、MVP、MVVM三种模式的理解mv*本质都是处理model层和vision层之间的关系，数据的流动方式。 数据驱动 在MVVM中，以前开发模式中必须先处理业务数据，然后根据的数据变化，去获取UI的引用然后更新UI，通过也是通过UI来获取用户输入，而在MVVM中，数据和业务逻辑处于一个独立的View Model中，ViewModel只要关注数据和业务逻辑，不需要和UI或者控件打交道。由数">
+<meta name="twitter:description" content="对于MVC、MVP、MVVM三种模式的理解mv*本质都是处理model层和vision层之间的关系，数据的流动方式。">
 
 
 
@@ -316,6 +316,7 @@
 
       
         <h3 id="对于MVC、MVP、MVVM三种模式的理解"><a href="#对于MVC、MVP、MVVM三种模式的理解" class="headerlink" title="对于MVC、MVP、MVVM三种模式的理解"></a>对于MVC、MVP、MVVM三种模式的理解</h3><p>mv*本质都是处理model层和vision层之间的关系，数据的流动方式。</p>
+<a id="more"></a>
 <p><strong>数据驱动</strong></p>
 <p>在MVVM中，以前开发模式中必须先处理业务数据，然后根据的数据变化，去获取UI的引用然后更新UI，通过也是通过UI来获取用户输入，而在MVVM中，数据和业务逻辑处于一个独立的View Model中，ViewModel只要关注数据和业务逻辑，不需要和UI或者控件打交道。由数据自动去驱动UI去自动更新UI，UI的改变又同时自动反馈到数据，数据成为主导因素，这样使得在业务逻辑处理只要关心数据，方便而且简单很多。</p>
 <p><strong>低耦合度</strong><br>MVVM模式中，数据是独立于UI的，ViewModel只负责处理和提供数据，UI想怎么处理数据都由UI自己决定，ViewModel 不涉及任何和UI相关的事也不持有UI控件的引用，即使控件改变（TextView 换成 EditText）ViewModel 几乎不需要更改任何代码，专注自己的数据处理就可以了，如果是MVP遇到UI更改，就可能需要改变获取UI的方式，改变更新UI的接口，改变从UI上获取输入的代码，可能还需要更改访问UI对象的属性代码等等。</p>
