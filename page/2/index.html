@@ -98,7 +98,7 @@
 <meta name="description" content="足球，利物浦，杰拉德，sia，憧憬着很多，更多">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Centmaster的地盘">
-<meta property="og:url" content="https://github.com/centmaster/hexo-centmaster/archives/2017/08/index.html">
+<meta property="og:url" content="https://github.com/centmaster/hexo-centmaster/page/2/index.html">
 <meta property="og:site_name" content="Centmaster的地盘">
 <meta property="og:description" content="足球，利物浦，杰拉德，sia，憧憬着很多，更多">
 <meta name="twitter:card" content="summary">
@@ -133,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="https://github.com/centmaster/hexo-centmaster/archives/2017/08/"/>
+  <link rel="canonical" href="https://github.com/centmaster/hexo-centmaster/page/2/"/>
 
 
 
 
 
-  <title>Archive | Centmaster的地盘</title>
+  <title>Centmaster的地盘</title>
   
 
 
@@ -158,7 +158,8 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left 
+  page-home">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -251,111 +252,146 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
-
-      <span class="archive-page-counter">
-        
-        
-        
-          
-        
-        Um..! 11 posts in total. Keep on posting.
-      </span>
-
+  <section id="posts" class="posts-expand">
+    
       
 
-        
-        
-        
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://github.com/centmaster/hexo-centmaster/hexo-centmaster/2017/08/23/v-dom/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="centmaster">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/hexo-centmaster/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Centmaster的地盘">
+    </span>
+
+    
+      <header class="post-header">
 
         
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/hexo-centmaster/2017/08/23/v-dom/" itemprop="url">vue 1和2dom渲染的分析</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-23T22:01:48+08:00">
+                2017-08-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2017">2017</h1>
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>vue1利用DocumentFragment渲染</p>
+<p>_compile 部分分为三步 transclude  compile    link</p>
+<ol>
+<li><p>transclude<br>transclude的意思是内嵌，这个步骤会把你template里给出的模板转换成一段dom，然后抽取出你el选项指定的dom里的内容（即子元素，因为模板里可能有slot），把这段模板dom嵌入到el里面去，当然，如果replace为true，那他就是直接替换el，而不是内嵌。我们大概明白transclude这个名字的意义了，但其实更关键的是把template转换为dom的过程（如<code>&lt;p&gt;&lt;p&gt;</code>字符串转为真正的段落元素），这里为后面的编译准备好了dom。</p>
+<p>说白了就是把字符串转换成dom</p>
+</li>
+<li><p>compile<br>compile的的过程具体就是<strong>遍历模板解析出模板里的指令</strong>。更精确的说是解析后生成了指令描述对象。<br>同时，compile函数是一个高阶函数，他执行完成之后的返回值是另一个函数：link，所以compile函数的第一个阶段是编译，返回出去的这个函数完成另一个阶段：link。</p>
+</li>
+<li><p>link<br>compile阶段将指令解析成为指令描述对象(descriptor)，闭包在了link函数里，link函数会把descriptor传入Directive构造函数，创建出真正的指令实例。此外link函数是作为参数传入linkAndCaptrue中的，后者负责执行link，同时取出这些新生成的指令，先按照指令的预置的优先级从高到低排好顺序，然后遍历指令执行指令的_bind方法，这个方法会为指令创建watcher，并计算表达式的值，完成前面描述的依赖收集。并最后执行对应指令的bind和update方法，使指令生效、界面更新。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/hexo-centmaster/2017/08/23/v-dom/#more" rel="contents">
+              Read more &raquo;
+            </a>
           </div>
+          <!--/noindex-->
         
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/hexo-centmaster/2017/08/25/readbook/" itemprop="url">
-              
-                <span itemprop="name">读书笔记</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-08-25T21:43:48+08:00"
-              content="2017-08-25" >
-          08-25
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/hexo-centmaster/2017/08/23/v-dom/" itemprop="url">
-              
-                <span itemprop="name">vue 1和2dom渲染的分析</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-08-23T22:01:48+08:00"
-              content="2017-08-23" >
-          08-23
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
   </div>
   
   
   
+  </article>
+
+
+    
+  </section>
 
   
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/hexo-centmaster/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/hexo-centmaster/">1</a><span class="page-number current">2</span>
+  </nav>
 
 
 
