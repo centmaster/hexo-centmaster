@@ -95,20 +95,20 @@
 
 
 
-<meta name="description" content="js设计模式绍兴—-和一个傻妞  对比发布／订阅模式和观察者模式">
+<meta name="description" content="js设计模式 对比发布／订阅模式和观察者模式">
 <meta property="og:type" content="article">
-<meta property="og:title" content="js design-patterns">
-<meta property="og:url" content="https://github.com/centmaster/hexo-centmaster/2017/09/23/design-patterns/index.html">
+<meta property="og:title" content="js-design-pattern">
+<meta property="og:url" content="https://github.com/centmaster/hexo-centmaster/2017/09/23/js-design-pattern/index.html">
 <meta property="og:site_name" content="Centmaster的地盘">
-<meta property="og:description" content="js设计模式绍兴—-和一个傻妞  对比发布／订阅模式和观察者模式">
-<meta property="og:image" content="https://github.com/Users/centmaster/Documents/code/hexo-centmaster/public/images/IMG_0770.jpg">
-<meta property="og:image" content="https://github.com/Users/centmaster/Documents/code/hexo-centmaster/public/images/observer.png">
-<meta property="og:image" content="https://github.com/Users/centmaster/Documents/code/hexo-centmaster/public/images/sub:pub.png">
-<meta property="og:updated_time" content="2017-09-23T14:56:17.000Z">
+<meta property="og:description" content="js设计模式 对比发布／订阅模式和观察者模式">
+<meta property="og:image" content="https://github.com/centmaster/hexo-centmaster/2017/09/23/js-design-pattern/IMG_1181.jpg">
+<meta property="og:image" content="https://github.com/centmaster/hexo-centmaster/2017/09/23/js-design-pattern/observer.png">
+<meta property="og:image" content="https://github.com/centmaster/hexo-centmaster/2017/09/23/js-design-pattern/pub:sub.png">
+<meta property="og:updated_time" content="2017-09-24T02:13:06.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="js design-patterns">
-<meta name="twitter:description" content="js设计模式绍兴—-和一个傻妞  对比发布／订阅模式和观察者模式">
-<meta name="twitter:image" content="https://github.com/Users/centmaster/Documents/code/hexo-centmaster/public/images/IMG_0770.jpg">
+<meta name="twitter:title" content="js-design-pattern">
+<meta name="twitter:description" content="js设计模式 对比发布／订阅模式和观察者模式">
+<meta name="twitter:image" content="https://github.com/centmaster/hexo-centmaster/2017/09/23/js-design-pattern/IMG_1181.jpg">
 
 
 
@@ -138,13 +138,13 @@
 
 
 
-  <link rel="canonical" href="https://github.com/centmaster/hexo-centmaster/2017/09/23/design-patterns/"/>
+  <link rel="canonical" href="https://github.com/centmaster/hexo-centmaster/2017/09/23/js-design-pattern/"/>
 
 
 
 
 
-  <title>js design-patterns | Centmaster的地盘</title>
+  <title>js-design-pattern | Centmaster的地盘</title>
   
 
 
@@ -204,7 +204,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            Home
+            Startseite
           </a>
         </li>
       
@@ -224,7 +224,7 @@
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            Archives
+            Archiv
           </a>
         </li>
       
@@ -271,7 +271,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://github.com/centmaster/hexo-centmaster/hexo-centmaster/2017/09/23/design-patterns/">
+    <link itemprop="mainEntityOfPage" href="https://github.com/centmaster/hexo-centmaster/hexo-centmaster/2017/09/23/js-design-pattern/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="centmaster">
@@ -288,7 +288,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">js design-patterns</h1>
+          <h1 class="post-title" itemprop="name headline">js-design-pattern</h1>
         
 
         <div class="post-meta">
@@ -298,7 +298,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-23T20:06:01+08:00">
                 2017-09-23
@@ -338,15 +338,16 @@
       
 
       
-        <h2 id="js设计模式"><a href="#js设计模式" class="headerlink" title="js设计模式"></a>js设计模式</h2><p>绍兴—-和一个傻妞</p>
-<p><img src="/Users/centmaster/Documents/code/hexo-centmaster/public/images/IMG_0770.jpg" alt="IMG_0770"></p>
+        <h2 id="js设计模式"><a href="#js设计模式" class="headerlink" title="js设计模式"></a>js设计模式</h2><p><img src="/hexo-centmaster/2017/09/23/js-design-pattern/IMG_1181.jpg" alt="worker statium"></p>
 <h4 id="对比发布／订阅模式和观察者模式"><a href="#对比发布／订阅模式和观察者模式" class="headerlink" title="对比发布／订阅模式和观察者模式"></a>对比发布／订阅模式和观察者模式</h4><a id="more"></a>
 <p><strong>观察者模式</strong></p>
 <p>比较概念的解释是，目标和观察者是基类，目标提供维护观察者的一系列方法，观察者提供更新接口。具体观察者和具体目标继承各自的基类，然后具体观察者把自己注册到具体目标里，在具体目标发生变化时候，调度观察者的更新方法。</p>
-<p>比如有个“天气中心”的具体目标A，专门监听天气变化，而有个显示天气的界面的观察者B，B就把自己注册到A里，当A触发天气变化，就调度B的更新方法，并带上自己的上下文。<img src="/Users/centmaster/Documents/code/hexo-centmaster/public/images/observer.png" alt="observer"></p>
+<p>比如有个“天气中心”的具体目标A，专门监听天气变化，而有个显示天气的界面的观察者B，B就把自己注册到A里，当A触发天气变化，就调度B的更新方法，并带上自己的上下文。</p>
+<p><img src="/hexo-centmaster/2017/09/23/js-design-pattern/observer.png" alt="observer"></p>
 <p><strong>发布/订阅模式</strong></p>
 <p>比较概念的解释是，订阅者把自己想订阅的事件注册到调度中心，当该事件触发时候，发布者发布该事件到调度中心（顺带上下文），由调度中心统一调度订阅者注册到调度中心的处理代码。</p>
-<p>比如有个界面是实时显示天气，它就订阅天气事件（注册到调度中心，包括处理程序），当天气变化时（定时获取数据），就作为发布者发布天气信息到调度中心，调度中心就调度订阅者的天气处理程序。<img src="/Users/centmaster/Documents/code/hexo-centmaster/public/images/sub:pub.png" alt="sub:pub"></p>
+<p>比如有个界面是实时显示天气，它就订阅天气事件（注册到调度中心，包括处理程序），当天气变化时（定时获取数据），就作为发布者发布天气信息到调度中心，调度中心就调度订阅者的天气处理程序。</p>
+<p><img src="/hexo-centmaster/2017/09/23/js-design-pattern/pub:sub.png" alt="pub:sub"></p>
 <p><strong>总结</strong></p>
 <ol>
 <li>从两张图片可以看到，最大的区别是调度的地方。</li>
@@ -441,10 +442,10 @@
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Table of Contents
+            Inhaltsverzeichnis
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
-            Overview
+            Übersicht
           </li>
         </ul>
       
@@ -464,7 +465,7 @@
               <a href="/hexo-centmaster/archives/">
             
                 <span class="site-state-item-count">11</span>
-                <span class="site-state-item-name">posts</span>
+                <span class="site-state-item-name">Artikel</span>
               </a>
             </div>
           
@@ -477,7 +478,7 @@
             <div class="site-state-item site-state-tags">
               <a href="/hexo-centmaster/tags/index.html">
                 <span class="site-state-item-count">2</span>
-                <span class="site-state-item-name">tags</span>
+                <span class="site-state-item-name">Tags</span>
               </a>
             </div>
           
@@ -558,7 +559,7 @@
 </div>
 
 
-  <div class="powered-by">Powered by <a class="theme-link" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a></div>
 
   <span class="post-meta-divider">|</span>
 
